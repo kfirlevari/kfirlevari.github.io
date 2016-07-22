@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+	<!-- Mobile viewport optimized -->
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+		
+	<!-- Title -->
+	 	
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="http://kfirlevari.com/xmlrpc.php" />
+	
+	<!-- WP Head -->
+	<title>Page not found &#8211; Kfir Lev-Ari</title>
+<meta name="generator" content="WordPress 4.5.3" />
+<meta name="template" content="Oxygen 0.6.0" />
+<link rel="alternate" type="application/rss+xml" title="Kfir Lev-Ari &raquo; Feed" href="http://kfirlevari.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Kfir Lev-Ari &raquo; Comments Feed" href="http://kfirlevari.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/kfirlevari.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-publication-archive-frontend-css'  href='http://kfirlevari.com/wp-content/plugins/wp-publication-archive/includes/front-end.css?ver=3' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://kfirlevari.com/wp-includes/css/dashicons.min.css?ver=4.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-bar-css'  href='http://kfirlevari.com/wp-includes/css/admin-bar.min.css?ver=4.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='http://kfirlevari.com/wp-content/themes/oxygen/style.min.css?ver=0.6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='social-widget-css'  href='http://kfirlevari.com/wp-content/plugins/social-media-widget/social_widget.css?ver=4.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-info-css'  href='http://kfirlevari.com/wp-content/plugins/simple-contact-info/css/contact-info-frondend.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='font-abel-css'  href='http://fonts.googleapis.com/css?family=Abel&#038;ver=1' type='text/css' media='screen' />
+<link rel='stylesheet' id='ct_contact_css-css'  href='http://kfirlevari.com/wp-content/plugins/ct-contact/assets/style.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript' src='http://kfirlevari.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://kfirlevari.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://kfirlevari.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://kfirlevari.com/wp-includes/wlwmanifest.xml" /> 
+<!-- <meta name="NextGEN" version="2.1.46" /> -->
+<link rel='shortcut icon' href='http://kfirlevari.com/favicon.ico' />
+
+	<style type="text/css">
+
+		/* Font size. */
+					html { font-size: 16px; }
+		
+		/* Font family. */
+					h1, h2, h3, h4, h5, h6, dl dt, blockquote, blockquote blockquote blockquote, #site-title, #menu-primary li a { font-family: 'Abel', serif; }
+		
+		/* Link color. */
+					a, a:visited, .page-template-front .hfeed-more .hentry .entry-title a:hover, .entry-title a, .entry-title a:visited { color: #0da4d3; }
+			.read-more, .read-more:visited, .pagination a:hover, .comment-navigation a:hover, #respond #submit, .button, a.button, #subscribe #subbutton, .wpcf7-submit, #loginform .button-primary { background-color: #0da4d3; }
+				a:hover, a:focus { color: #000; }
+		.read-more:hover, #respond #submit:hover, .button:hover, a.button:hover, #subscribe #subbutton:hover, .wpcf7-submit:hover, #loginform .button-primary:hover { background-color: #111; }
+
+		/* Custom CSS. */
+		
+	
+	</style>	
+
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+
+</head>
+
+<body class="wordpress ltr en_US parent-theme y2016 m07 d22 h16 friday logged-in admin-bar error-404 no-js">
+
+	
+	<div id="container">
+		
+		<div class="wrap">
+
+				
+			<div id="header">
+	
+					
+					<div id="branding">
+						
+						<div id="site-title"><a href="http://kfirlevari.com" title="Kfir Lev-Ari" rel="home"><span>Kfir Lev-Ari</span></a></div>						
+												
+					</div><!-- #branding -->
+					
+										
+					
+	
+	<div id="menu-primary" class="site-navigation menu-container" role="navigation">
+
+		<span class="menu-toggle">Menu</span>
+
+		
+		<div class="menu"><ul id="menu-primary-items" class="nav-menu"><li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="http://kfirlevari.com/">About Me</a></li>
+<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="http://kfirlevari.com/publications/">Publications</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://kfirlevari.com/teaching/">Teaching</a></li>
+<li id="menu-item-150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-150"><a href="http://kfirlevari.com/photography/">Photography</a></li>
+</ul></div>
+		
+	</div><!-- #menu-primary .menu-container -->
+
+	
+					
+	
+						
+					
+			</div><!-- #header -->
+	
+				
+				
+			<div id="main">
+	
+				
+	<div class="aside">
+	
+				
+		
+	
+	<div id="sidebar-primary" class="sidebar">
+
+				
+		<section id="social-widget-2" class="widget Social_Widget widget-Social_Widget"><div class="socialmedia-buttons smw_left"><a href="https://www.facebook.com/LA.Kfir" rel="nofollow" target="_blank"><img width="32" height="32" src="http://kfirlevari.com/wp-content/plugins/social-media-widget/images/default/32/facebook.png" 
+				alt=" Facebook" 
+				title=" Facebook" style="opacity: 0.8; -moz-opacity: 0.8;" class="fade" /></a><a href="http://il.linkedin.com/in/kfirlevari/" rel="nofollow" target="_blank"><img width="32" height="32" src="http://kfirlevari.com/wp-content/plugins/social-media-widget/images/default/32/linkedin.png" 
+				alt=" LinkedIn" 
+				title=" LinkedIn" style="opacity: 0.8; -moz-opacity: 0.8;" class="fade" /></a><a href="https://github.com/kfirlevari" rel="nofollow" target="_blank"><img width="32" height="32" src="http://kfirlevari.com/wp-content/plugins/social-media-widget/images/default/32/github.png" 
+				alt=" Github" 
+				title=" Github" style="opacity: 0.8; -moz-opacity: 0.8;" class="fade" /></a><a href="https://bandcamp.com/kfirlev-ari" rel="nofollow" target="_blank"><img width="32" height="32" src="http://kfirlevari.com/wp-content/plugins/social-media-widget/images/default/32/bandcamp.png" 
+				alt=" Bandcamp" 
+				title=" Bandcamp" style="opacity: 0.8; -moz-opacity: 0.8;" class="fade" /></a><a href="http://kfirlevari.com/wp-content/uploads/2016/06/Kfir.Lev-Ari.CV_.pdf" rel="nofollow" target="_blank"><img width="32" height="32" src="http://kfirlevari.com/wp-content/uploads/2014/09/1329478541_318267665_1-Pictures-of-Your-CV-is-your-First-Interview-Make-an-Impression-.png" 
+				alt=" " 
+				title=" " style="opacity: 0.8; -moz-opacity: 0.8;" class="fade" /></a></div></section>
+		
+	</div><!-- #sidebar-primary .aside -->
+
+	
+	
+	</div>
+
+		
+	<div class="content-wrap">
+
+		<div id="content">
+	
+			
+		<div class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+			<span class="trail-browse">Browse:</span> <span class="trail-begin"><a href="http://kfirlevari.com" title="Kfir Lev-Ari" rel="home">Home</a></span>
+			 <span class="sep">&nbsp; / &nbsp;</span> <span class="trail-end">404 Not Found</span>
+		</div>	
+			<div class="hfeed">
+	
+				<div id="post-0" class="hentry error">
+	
+					<h1 class="error-404-title entry-title">Not Found</h1>
+	
+					<div class="entry-content">
+	
+						<p>
+						You tried going to <code>http://kfirlevari.com/fav.icon</code>, and it doesn't exist. All is not lost! You can search for what you're looking for.						</p>
+	
+									<div class="search">
+
+				<form method="get" class="search-form" action="http://kfirlevari.com/">
+				
+				<div>
+					
+					<input class="search-text" type="text" name="s" value="Search this site..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+					
+					<input class="search-submit button" name="submit" type="submit" value="Search" />
+					
+				</div>
+				
+				</form><!-- .search-form -->
+
+			</div><!-- .search -->	
+					</div><!-- .entry-content -->
+	
+				</div><!-- .hentry -->
+	
+			</div><!-- .hfeed -->
+	
+				
+		</div><!-- #content -->
+	
+		
+				
+				
+				
+	
+	<div id="sidebar-secondary" class="sidebar">
+
+		
+				<section id="ct_contact-2" class="widget widget_ct_contact widget-widget_ct_contact">		<h3 class="widget-title">Office</h3>        <ul>
+            <li id="company-name">Meyer 1130</li>            <li>Electrical Engineering Department</li>            <li>Technion, Haifa,  3200003</li>            <li>Israel</li>                                </ul>		
+		</section>   
+    <section id="sci_info_widget-3" class="widget widget_sci_info_widget widget-widget_sci_info_widget">		<div class="sci-contact">
+			
+			
+			
+							<p class="sci-address-email">
+										<a href="mailto:kfirla@campus.technion.ac.il" rel="nofollow">kfirla@campus.technion.ac.il</a>
+				</p>
+					</div>
+		</section>
+		
+	</div><!-- #sidebar-secondary .aside -->
+
+	
+				
+				</div><!-- .content-wrap -->
+
+				
+		</div><!-- #main -->
+
+		
+				
+
+		
+		<div id="footer">
+
+			
+			<div id="footer-content" class="footer-content">
+            <p class="copyright">Copyright &#169; 2016 <p class="credit"> Powered by <a href="http://alienwp.com">Oxygen Theme</a>.</p>
+				
+			
+				
+			</div>
+				
+			
+			
+			
+		</div><!-- #footer -->
+
+				
+		</div><!-- .wrap -->
+
+	</div><!-- #container -->
+
+		
+	<script type='text/javascript' src='http://kfirlevari.com/wp-includes/js/admin-bar.min.js?ver=4.5.3'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/jquery.imagesloaded.js?ver=1.0'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/jquery.masonry.min.js?ver=1.0'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/cycle/jquery.cycle.min.js?ver=1.0'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/fitvids/jquery.fitvids.js?ver=1.0'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/navigation.js?ver=20130301'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var slider_settings = {"timeout":"6000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/js/footer-scripts-light.js?ver=1.0'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-content/themes/oxygen/library/js/drop-downs.min.js?ver=20130805'></script>
+<script type='text/javascript' src='http://kfirlevari.com/wp-includes/js/wp-embed.min.js?ver=4.5.3'></script>
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+			request = true;
+
+			b[c] = b[c].replace( rcs, ' ' );
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+			<div id="wpadminbar" class="nojq nojs">
+							<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://kfirlevari.com/wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://kfirlevari.com/wp-admin/">Kfir Lev-Ari</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-dashboard"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/">Dashboard</a>		</li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu">
+		<li id="wp-admin-bar-themes"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/themes.php">Themes</a>		</li>
+		<li id="wp-admin-bar-widgets"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/widgets.php">Widgets</a>		</li>
+		<li id="wp-admin-bar-menus"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/nav-menus.php">Menus</a>		</li>
+		<li id="wp-admin-bar-background" class="hide-if-customize"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/themes.php?page=custom-background">Background</a>		</li>
+		<li id="wp-admin-bar-header" class="hide-if-customize"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/themes.php?page=custom-header">Header</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/customize.php?url=http%3A%2F%2Fkfirlevari.com%2Ffav.icon">Customize</a>		</li>
+		<li id="wp-admin-bar-updates"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/update-core.php" title="2 Plugin Updates"><span class="ab-icon"></span><span class="ab-label">2</span><span class="screen-reader-text">2 Plugin Updates</span></a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/edit-comments.php"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://kfirlevari.com/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/post-new.php">Post</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/media-new.php">Media</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-publication"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/post-new.php?post_type=publication">Publication</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/user-new.php">User</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-delete-cache"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/index.php?action=delcachepage&#038;path=%2Ffav.icon&#038;_wpnonce=b20590dc09" title="Delete cache of the current page">Delete Cache</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="http://kfirlevari.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li>
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="http://kfirlevari.com/wp-admin/profile.php">Howdy, Kfir<img alt='' src='http://1.gravatar.com/avatar/ad6dd401dccfd78d770b454bf5280b47?s=26&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/ad6dd401dccfd78d770b454bf5280b47?s=52&amp;d=mm&amp;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://kfirlevari.com/wp-admin/profile.php"><img alt='' src='http://1.gravatar.com/avatar/ad6dd401dccfd78d770b454bf5280b47?s=64&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/ad6dd401dccfd78d770b454bf5280b47?s=128&amp;d=mm&amp;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>Kfir</span><span class='username'>kladm</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="http://kfirlevari.com/wp-admin/profile.php">Edit My Profile</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item"  href="http://kfirlevari.com/wp-login.php?action=logout&#038;_wpnonce=59c3d2bffb">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="http://kfirlevari.com/wp-login.php?action=logout&#038;_wpnonce=59c3d2bffb">Log Out</a>
+					</div>
+
+		
+</body>
+</html>
