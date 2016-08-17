@@ -1,111 +1,132 @@
 <!DOCTYPE HTML>
 <!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+    Read Only by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
 <html>
-	<head>
-		<title>Kfir Lev-Ari</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/academicons.min.css"/>
-		<link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/main.css" />
-		<link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" >
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
+  <head>
+    <title>Kfir Lev-Ari</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/academicons.min.css"/>
+    <link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" >
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <script>
+      function load() {
+      $("#bibtex_input").load('https://raw.githubusercontent.com/kfirlevari/CV/master/bibliography.bib',
+      function(){
+      bibtex_js_draw();
+      });
+      }
+      window.onload = load;
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <header>
+	<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+	<h1 id="logo"><a href="#">Kfir Lev-Ari</a></h1>
+	<p>PhD Student</p>
+      </header>
+      <nav id="nav">
+	<ul>
+	  <li><a href="#one" class="active">About</a></li>
+	  <li><a href="#two">Publications</a></li>
+	  <li><a href="#three">Teaching</a></li>
+	</ul>
+      </nav>
+      <footer>
+	<ul class="icons">
+	  <li><a href="https://scholar.google.co.il/citations?hl=en&user=SdzwxKEAAAAJ&view_op=list_works&sortby=pubdate" class="ai-google-scholar"></a></li> 
+	  <li><a href="http://il.linkedin.com/in/kfirlevari/" class="fa fa-linkedin" ></a></li>
+ 	  <li><a href="https://www.facebook.com/LA.Kfir" class="fa fa-facebook"></a></li>
+ 	  <li><a href="https://github.com/kfirlevari" class="fa fa-github"></a></li>
+ 	  <li><a href="https://bandcamp.com/kfirlev-ari" class="fa fa-bandcamp" ></a></li>
+ 	  <li><a href="https://github.com/kfirlevari/CV/raw/master/Kfir.Lev-Ari.CV.pdf" class="fa fa-file-text" ></a></li>
+	  <li><a href="mailto:kfirla@campus.technion.ac.il" class="fa fa-envelope"></a></li>
+	</ul>
+      </footer>
+    </section>
+    
+    <!-- Wrapper -->
+    <div id="wrapper">
+      
+      <!-- Main -->
+      <div id="main">
+	
+	<!-- One -->
+	<section id="one">
+	  <div class="container">
+	    <header class="major">
+	      <h2>ABOUT ME</h2>
+	      <!-- <p>Just an incredibly simple responsive site<br />
+		   template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p> -->
+	    </header>
+	    <p>I am a PhD student in the <a href="http://webee.technion.ac.il/">Viterbi Department of Electrical Engineering</a>, at the <a href="http://www.technion.ac.il/en/">Technion IIT</a>.<br>
+	      
+	      My supervisor is <a href="http://webee.technion.ac.il/~idish/">Prof. Idit Keidar</a>.<br>
+	      
+	      I am interested in distributed systems and correctness of concurrent algorithms.<br>
+	      Please see <a href="https://scholar.google.co.il/citations?hl=en&user=SdzwxKEAAAAJ&view_op=list_works&sortby=pubdate" class="ai-google-scholar"></a> for my publications, and <a href="https://github.com/kfirlevari/CV/raw/master/Kfir.Lev-Ari.CV.pdf" class="fa fa-file-text" ></a> for my CV.</p>
+	  </div>
+	</section>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Kfir Lev-Ari</a></h1>
-					<p>PhD Student</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#two">Teaching</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-							<li><a href="https://scholar.google.co.il/citations?hl=en&user=SdzwxKEAAAAJ&view_op=list_works&sortby=pubdate" class="ai-google-scholar"></a></li> 
-							<li><a href="http://il.linkedin.com/in/kfirlevari/" class="fa fa-linkedin" ></a></li>
- 							<li><a href="https://www.facebook.com/LA.Kfir" class="fa fa-facebook"></a></li>
- 							<li><a href="https://github.com/kfirlevari" class="fa fa-github"></a></li>
- 							<li><a href="https://bandcamp.com/kfirlev-ari" class="fa fa-bandcamp" ></a></li>
- 							<li><a href="https://github.com/kfirlevari/CV/raw/master/Kfir.Lev-Ari.CV.pdf" class="fa fa-file-text" ></a></li>
-							<li><a href="mailto:kfirla@campus.technion.ac.il" class="fa fa-envelope"></a></li>
-					</ul>
-				</footer>
-			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- One -->
-							<section id="one">
-								<div class="container">
-									<header class="major">
-										<h2>ABOUT ME</h2>
-										<!-- <p>Just an incredibly simple responsive site<br />
-										template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p> -->
-									</header>
-									<p>I am a PhD student in the <a href="http://webee.technion.ac.il/">Viterbi Department of Electrical Engineering</a>, at the <a href="http://www.technion.ac.il/en/">Technion IIT</a>.<br>
-
-My supervisor is <a href="http://webee.technion.ac.il/~idish/">Prof. Idit Keidar</a>.<br>
-
-I am interested in distributed systems and correctness of concurrent algorithms.<br>
-Please see <a href="https://scholar.google.co.il/citations?hl=en&user=SdzwxKEAAAAJ&view_op=list_works&sortby=pubdate" class="ai-google-scholar"></a> for my publications, and <a href="https://github.com/kfirlevari/CV/raw/master/Kfir.Lev-Ari.CV.pdf" class="fa fa-file-text" ></a> for my CV.</p>
-								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two">
-								<div class="container">
-									<h3>Teaching</h3>
-									<h4>Current:</h4> 
-<p>Project supervisor and Java lab instructor <a href="http://nssl.eew.technion.ac.il/">NSSL Lab EE Technion</a></p>
-									<h4>Past undergraduate projects:</h4>
-									<ul class="feature-icons">
-									  <li class="fa-trophy">Dare you go: a social challenges platform<br>
-										<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5628/Download/1">presentation</a>, 
-										<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5629/Download/1">project book</a></li>
-									      <li class="fa-users">Mixus: a proximity-based playlist<br>
-										<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4496/Download/1">presentation</a>, 
-										<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4495/Download/1">project book</a></li>
-									      <li class="fa-street-view">Navigation by touch<br>
-<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4311/Download/1">Android group</a>, <a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4749/Download/1">Pebble group</a>  </li>
-									      <li class="fa-unlock">Lock-free multiple readers single writer B+tree algorithm in C++ for NUMA architectures <br> <a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/3368/Download/1">Project book</a></li>
-									    </ul>
-									  </li>
-									  <h4>Past:</h4> 
+	<!-- Two -->
+	<section id="two">
+	  <div class="container">
+	    <h3>Publications</h3>
+	    <text hidden id="bibtex_input">
+	    </text>    
+	    <div id="bibtex_display">
+	    </div>	   
+	  </div>
+	</section>
+	
+	<!-- Three -->
+	<section id="three">
+	  <div class="container">
+	    <h3>Teaching</h3>
+	    <h4>Current:</h4> 
+	    <p>Project supervisor and Java lab instructor <a href="http://nssl.eew.technion.ac.il/">NSSL Lab EE Technion</a></p>
+	    <h4>Past undergraduate projects:</h4>
+	    <ul class="feature-icons">
+	      <li class="fa-trophy">Dare you go: a social challenges platform<br>
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5628/Download/1">presentation</a>, 
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5629/Download/1">project book</a></li>
+	      <li class="fa-users">Mixus: a proximity-based playlist<br>
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4496/Download/1">presentation</a>, 
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4495/Download/1">project book</a></li>
+	      <li class="fa-street-view">Navigation by touch<br>
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4311/Download/1">Android group</a>,
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4749/Download/1">Pebble group</a>  </li>
+	      <li class="fa-unlock">Lock-free multiple readers single writer B+tree algorithm in C++ for NUMA architectures <br>
+		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/3368/Download/1">Project book</a> </li>
+</ul></li>
+<h4>Past:</h4> 
 <p> Teaching assistant in charge, <a href="http://webcourse.cs.technion.ac.il/236350">Computer Security cs236350</a> (Spring 2013 - Spring 2014).</li>
-									</p>
-								</div>
-							</section>
-					</div>
+</p>
+</div>
+</section>
+</div>
 
-				<!-- Footer -->
-					<section id="footer">
-					</section>
+<!-- Footer -->
+<section id="footer">
+</section>
 
-			</div>
+</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollzer.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollzer.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/bibtex_js.js"></script>
+</body>
 </html>
