@@ -312,9 +312,8 @@ function BibtexDisplay() {
           f.innerHTML = "";
         }
       });
-    
-      o.append(tpl);
-      tpl.show();
+	o.append(tpl);
+	tpl.show();
     }
     
     old.remove();
@@ -379,8 +378,8 @@ function BibtexDisplay() {
         tpl.find("a." + key.toLowerCase()).attr('href', this.fixValue(value));
       }
       
-      output.append(tpl);
-      tpl.show();
+	output.append(tpl);
+	tpl.show();
     }
     
     // remove old entries
@@ -391,7 +390,7 @@ function BibtexDisplay() {
 
 function bibtex_js_draw() {
     $(".bibtex_template").hide();
-  (new BibtexDisplay()).displayBibtex($("#bibtex_input").html(), $("#bibtex_display"));
+    (new BibtexDisplay()).displayBibtex($("#bibtex_input").html(), $("#bibtex_display"));
 }
 
 // check whether or not jquery is present
@@ -404,7 +403,7 @@ if (typeof jQuery == 'undefined') {
   $(document).ready(function () {
     // check for template, add default
     if ($(".bibtex_template").size() == 0) {
-      $("body").append("<div class=\"bibtex_template\"><div class=\"if author\" style=\"font-weight: bold;\">\n  <span class=\"if year\">\n     <span class=\"month\"></span> <span class=\"year\"></span>, \n  </span>\n  <span class=\"author\"></span>\n  <span class=\"if url\" style=\"margin-left: 20px\">\n    <a class=\"url\" style=\"color:black; font-size:10px\">(view online)</a>\n  </span>\n</div>\n<div style=\"margin-left: 10px; margin-bottom:5px;\">\n  <span class=\"title\"></span>  (<span class=\"series\"></span>)\n</div></div>");
+      $("body").append("<div class=\"bibtex_template\"><li style=\"width:100%;\" class=\"fa fa-arrow-right \"><span class=\"title\" \" style=\"font-weight: bold;\"></span> (<span class=\"series\"></span>)<br></span>\n  <span class=\"author\"></span><span class=\"if url\" style=\"margin-left: 20px\">\n<br><a class=\"url\" style=\"color:black; font-size:10px\">(view online)</a>\n  </span>\n</div>\n<div style=\"margin-left: 10px; margin-bottom:5px;\">\n\n</div></li></div>");
     }
 
     bibtex_js_draw();
