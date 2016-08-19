@@ -2570,9 +2570,9 @@
 			border-top: 0;
 		}
 
-/* One */
+/* About */
 
-	#one:before {
+	#About:before {
 		background-image: url("../../images/banner.jpg");
 		background-position: top right;
 		background-repeat: no-repeat;
@@ -2755,9 +2755,9 @@
 				padding: 44px 0 1px 0;
 			}
 
-		/* One */
+		/* About */
 
-			#one:before {
+			#About:before {
 				height: 10em;
 			}
 
@@ -2953,9 +2953,9 @@
 				padding: 2em 0 0 0;
 			}
 
-		/* One */
+		/* About */
 
-			#one:before {
+			#About:before {
 				height: 7em;
 			}
 
