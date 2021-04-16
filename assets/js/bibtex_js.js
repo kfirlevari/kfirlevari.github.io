@@ -320,6 +320,18 @@ function BibtexDisplay() {
   }
 
 
+  this.sortEntriesByYear = function(entries) {
+    var entriesArr = [];
+
+    for (var key in entries) {
+        if (entries.hasOwnProperty(key)) {
+            entriesArr.push(entries[key]);
+        }
+    }
+    entriesArr.sort((a, b) => (a["YEAR"] > b["YEAR"]) ? -1 : 1)
+    return entriesArr;
+  }
+
   this.displayBibtex = function(input, output) {
     // parse bibtex input
     var b = new BibtexParser();
@@ -329,8 +341,9 @@ function BibtexDisplay() {
     // save old entries to remove them later
     var old = output.find("*");
 
-    // iterate over bibTeX entries
-    var entries = b.getEntries();
+    // iterate over bibTeX sorted entries
+    var entries = this.sortEntriesByYear(b.getEntries());
+
     for (var entryKey in entries) {
       var entry = entries[entryKey];
 
