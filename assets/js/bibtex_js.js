@@ -416,7 +416,7 @@ if (typeof jQuery == 'undefined') {
   $(document).ready(function () {
     // check for template, add default
     if ($(".bibtex_template").size() == 0) {
-      $("body").append("<div class=\"bibtex_template\"><li style=\"width:100%;\" class=\"fa fa-arrow-right \"><span class=\"title\" \" style=\"font-weight: bold;\"></span> (<span class=\"series\"></span>)<br></span>\n  <span class=\"author\"></span><span class=\"if url\" style=\"margin-left: 20px\">\n<br><a class=\"url\" style=\"color:black; font-size:10px\">(view online)</a>\n  </span>\n</div>\n<div style=\"margin-left: 10px; margin-bottom:5px;\">\n\n</div></li></div>");
+      $("body").append("<div class=\"bibtex_template\"><li style=\"width:100%;\" class=\"fa fa-arrow-right \"><span class=\"title\" \" style=\"font-weight: bold; color:gray;\"></span> (<span class=\"series\"></span>)<br></span>\n  <span class=\"author\"></span><span class=\"if url\" style=\"margin-left: 20px\">\n<br><a class=\"url\" style=\"color:black; font-size:15px\">(view online)</a>\n  </span>\n</div>\n<div style=\"margin-left: 10px; margin-bottom:5px;\">\n\n</div></li></div>");
     }
 
     bibtex_js_draw();
