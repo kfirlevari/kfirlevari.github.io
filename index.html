@@ -1,139 +1,435 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <!--
-    Read Only by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-  -->
-<html>
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
   <head>
-    <title>Kfir Lev-Ari</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/academicons.min.css"/>
-    <link rel="stylesheet" href="https://kfirlevari.github.io/assets/css/main.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <script>
-      function load() {
-      $("#bibtex_input").load('https://raw.githubusercontent.com/kfirlevari/kfirlevari.github.io/master/bibliography.bib',
-      function(){
-      bibtex_js_draw();
-      });
-      }
-      window.onload = load;
-    </script>
-  </head>
-  <body>
-    <!-- Header -->
-    <section id="header">
-      <header>
-	<span class="image avatar"><img src="https://raw.githubusercontent.com/kfirlevari/kfirlevari.github.io/master/images/avatar.jpg" alt="" /></span>
-	<h1 id="logo"><a href="#">Kfir Lev-Ari</a></h1>
-	<p>iCloud R&D</p>
-      </header>
-      <nav id="nav">
-	<ul>
-	  <li><a href="#About" class="active">About</a></li>
-	  <li><a href="#Publications">Publications</a></li>
-	  <li><a href="#Past Teaching">Past Teaching</a></li>
-	  <li><a href="#Photography">Photography</a></li>
-	</ul>
-      </nav>
-      <footer>
-	<ul class="icons">
-	  <li><a href="http://dblp2.uni-trier.de/pers/hd/l/Lev=Ari:Kfir" class="ai ai-dblp"></a></li>
-	  <li><a href="https://scholar.google.co.il/citations?hl=en&user=SdzwxKEAAAAJ&view_op=list_works&sortby=pubdate" class="ai ai-google-scholar"></a></li> 
-	  <li><a href="http://il.linkedin.com/in/kfirlevari/" class="fa fa-linkedin" ></a></li>
- 	  <li><a href="https://github.com/kfirlevari" class="fa fa-github"></a></li>
- 	  <li><a href="https://bandcamp.com/kfirlev-ari" class="fa fa-bandcamp" aria-hidden="true"></a></li>
- 	  <li><a href="https://docs.google.com/document/d/1shaE5CVkZDbZarWa4c6doNmhUThNfubXauKJwQBBK1Y/edit?usp=sharing" class="fa fa-file-text" ></a></li>
-	  <li><a href="mailto:kfirla@alumni.technion.ac.il" class="fa fa-envelope"></a></li>
-	</ul>
-      </footer>
-    </section>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Kfir Lev-Ari’s Homepage - Kfir Lev-Ari</title>
+<meta name="description" content="Kfir Lev-Ari’s Homepage">
+
+
+  <meta name="author" content="Kfir Lev-Ari">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Kfir Lev-Ari">
+<meta property="og:title" content="Kfir Lev-Ari’s Homepage">
+<meta property="og:url" content="https://kfirlevari.github.io/">
+
+
+  <meta property="og:description" content="Kfir Lev-Ari’s Homepage">
+
+
+
+  <meta property="og:image" content="https://kfirlevari.github.io/assets/images/banner.jpeg">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://kfirlevari.github.io/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     
-    <!-- Wrapper -->
-    <div id="wrapper">
+      "@type": "Person",
+      "name": "",
+      "url": "https://kfirlevari.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Kfir Lev-Ari Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           
+          <span class="site-subtitle">kfirlevari.github.io</span>
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/past-teaching/">Past Teaching</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/personal/">Personal</a>
+            </li>
+</ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
       
-      <!-- Main -->
-      <div id="main">
-	
-	<!-- About -->
-	<section id="About">
-	  <div class="container">
-	    <header class="major">
-	      <h3>About Me</h3>
-	      <!-- <p>Just an incredibly simple responsive site<br />
-		   template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p> -->
-	    </header>
-	    <p>I work in Apple iCloud's Applied Research team. Before that I was a PhD student in the <a href="http://webee.technion.ac.il/">Viterbi Department of Electrical Engineering</a>, at the <a href="http://www.technion.ac.il/en/">Technion</a>.  
-		    My advisor was <a href="http://webee.technion.ac.il/~idish/">Prof. Idit Keidar</a>. In my research I focus on distributed systems, parallel computing, and correctness of concurrent algorithms.
-		    See <a href="https://docs.google.com/document/d/1shaE5CVkZDbZarWa4c6doNmhUThNfubXauKJwQBBK1Y/edit?usp=sharing" class="fa fa-file-text" ></a> for my CV, 
-		    and <a href="https://docs.google.com/presentation/d/1dZdGvZiqT2CKpHS3v6e2_Iq2sgCd_GSMUINlkZOCIAc/edit?usp=sharing"  class="fa fa-film" aria-hidden="true" ></a> for my PhD thesis seminar slides.</p>
-	  </div>
-	</section>
+  
 
-	<!-- Publications -->
-	<section id="Publications">
-	  <div class="container">
-	    <h3>Publications</h3>
-	    <text hidden id="bibtex_input">
-	    </text>    
-	    <ul class="feature-icons" id="bibtex_display">
-	    </ul>	   
-	  </div>
-	</section>
-	
-	<!-- Past Teaching -->
-	<section id="Past Teaching">
-	  <div class="container">
-	    <h3>Past Teaching</h3>
-		  <ul>
-			<li> Teaching assistant in charge, <a href="http://webcourse.cs.technion.ac.il/236350">Computer Security cs236350</a> (Spring 2013 - Spring 2014).</li>
-			<li> Project supervisor and Java lab instructor <a href="http://nssl.eew.technion.ac.il/">NSSL Lab EE Technion</a>.</li>
-		  </ul>
-		    <h4>Chosen Student Work:</h4>
-	    <ul class="feature-icons">
-	      <li class="fa-trophy">Dare you go: a social challenges platform<br>
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5628/Download/1">presentation</a>, 
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/5629/Download/1">project book</a></li>
-	      <li class="fa-users">Mixus: a proximity-based playlist<br>
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4496/Download/1">presentation</a>, 
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4495/Download/1">project book</a></li>
-	      <li class="fa-street-view">Navigation by touch<br>
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4311/Download/1">Android group</a>,
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/4749/Download/1">Pebble group</a>  </li>
-	      <li class="fa-unlock">Lock-free multiple readers single writer B+tree algorithm in C++ for NUMA architectures <br>
-		<a href="https://labadmin.ef.technion.ac.il/files/files/show/FileId/3368/Download/1">Project book</a> </li>
-</ul></li>
-</div>
-</section>
-<section id="Photography">
-	<div class="container">
-	    <h3>Photography</h3>
- 		<ul class="feature-icons">
-			<li class="fa-camera-retro"><a href="gallery/street.html">Street Photography</a></li>
-	  		<li class="fa-camera"><a href="gallery/cityscape.html">Cityscape Photography</a></li>
- 		</ul>
-	</div>
-</section>
+
+
+
+
+
+
+<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/banner.jpeg');">
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Kfir Lev-Ari’s Homepage
+
+        
+      </h1>
+      
+      
+
+
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption"><a href="/personal/#photography">See more photos here</a>
+</span>
+  
 </div>
 
-<!-- Footer -->
-<section id="footer">
-</section>
 
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <img src="/assets/images/bio-photo.jpeg" alt="Kfir Lev-Ari" itemprop="image" class="u-photo">
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      Kfir Lev-Ari
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Senior Software Engineer at <br> Apple Cloud Services ML team</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Sunnyvale, CA</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:kfirlevari@gmail.com" rel="me" class="u-email">
+            <meta itemprop="email" content="kfirlevari@gmail.com">
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/kfirlevari" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/kfirlevari" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+        
+      
+        <li>
+          <a href="https://www.strava.com/athletes/42969031" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-strava" aria-hidden="true"></i><span class="label">Strava</span>
+          </a>
+        </li>
+        
+        
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
 </div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollzer.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
-<script src="assets/js/bibtex_js.js"></script>
-</body>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Kfir Lev-Ari’s Homepage">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <img class="emoji" title=":wave:" alt=":wave:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png" height="20" width="20"> Welcome and thanks for stopping by!<br>
+<br>
+I created this place for sharing ideas.<br>
+My intention is to write about the latest things that I find interesting in the blog, and to share topics from my past experience in the other sections.
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="http://il.linkedin.com/in/kfirlevari/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+        
+      
+        
+          <li><a href="https://scholar.google.co.il/citations?hl=en&amp;user=SdzwxKEAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" rel="nofollow noopener noreferrer"><i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar</a></li>
+        
+      
+        
+          <li><a href="http://dblp2.uni-trier.de/pers/hd/l/Lev=Ari:Kfir" rel="nofollow noopener noreferrer"><i class="ai ai-dblp" aria-hidden="true"></i> DBLP</a></li>
+        
+      
+        
+          <li><a href="https://github.com/kfirlevari" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.patreon.com/user/creators?u=65820883" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-patreon" aria-hidden="true"></i> Patreon</a></li>
+        
+      
+        
+          <li><a href="https://bandcamp.com/kfirlev-ari" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-bandcamp" aria-hidden="true"></i> Bandcamp</a></li>
+        
+      
+        
+          <li><a href="https://www.strava.com/athletes/42969031" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-strava" aria-hidden="true"></i> Strava</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 Kfir Lev-Ari. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
 </html>

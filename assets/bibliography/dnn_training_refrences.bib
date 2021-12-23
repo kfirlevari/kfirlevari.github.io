@@ -1,0 +1,795 @@
+@article{DBLP:journals/csur/Ben-NunH19,
+  author    = {Tal Ben{-}Nun and
+               Torsten Hoefler},
+  title     = {Demystifying Parallel and Distributed Deep Learning: An In-depth Concurrency
+               Analysis},
+  journal   = {{ACM} Comput. Surv.},
+  volume    = {52},
+  number    = {4},
+  pages     = {65:1--65:43},
+  year      = {2019},
+  url       = {https://doi.org/10.1145/3320060},
+  doi       = {10.1145/3320060},
+  timestamp = {Mon, 07 Oct 2019 16:48:25 +0200},
+  biburl    = {https://dblp.org/rec/journals/csur/Ben-NunH19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/jpdc/OuyangDXX21,
+  author    = {Shuo Ouyang and
+               Dezun Dong and
+               Yemao Xu and
+               Liquan Xiao},
+  title     = {Communication optimization strategies for distributed deep neural
+               network training: {A} survey},
+  journal   = {J. Parallel Distributed Comput.},
+  volume    = {149},
+  pages     = {52--65},
+  year      = {2021},
+  url       = {https://doi.org/10.1016/j.jpdc.2020.11.005},
+  doi       = {10.1016/j.jpdc.2020.11.005},
+  timestamp = {Wed, 10 Feb 2021 09:00:36 +0100},
+  biburl    = {https://dblp.org/rec/journals/jpdc/OuyangDXX21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/csur/MayerJ20,
+  author    = {Ruben Mayer and
+               Hans{-}Arno Jacobsen},
+  title     = {Scalable Deep Learning on Distributed Infrastructures: Challenges,
+               Techniques, and Tools},
+  journal   = {{ACM} Comput. Surv.},
+  volume    = {53},
+  number    = {1},
+  pages     = {3:1--3:37},
+  year      = {2020},
+  url       = {https://doi.org/10.1145/3363554},
+  doi       = {10.1145/3363554},
+  timestamp = {Thu, 18 Jun 2020 08:15:37 +0200},
+  biburl    = {https://dblp.org/rec/journals/csur/MayerJ20.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{10754/662495,
+	year = {2020},
+	author = {Xu, Hang and Ho, Chen-Yu and Abdelmoniem, Ahmed M. and Dutta, Aritra and Bergou, El Houcine and Karatsenidis, Konstantinos and Canini, Marco and Kalnis, Panos},
+	note = {Powerful computer clusters are used nowadays to train complex deep neural networks (DNN) on large datasets. Distributed training workloads increasingly become communication bound. For this reason, many lossy compression techniques have been proposed to reduce the volume of transferred data. Unfortunately, it is difficult to argue about the behavior of compression methods, because existing work relies on inconsistent evaluation testbeds and largely ignores the performance impact of practical system configurations.In this paper, we present a comprehensive survey of the most influential compressed communication methods for DNN training, together with an intuitive classification (i.e., quantization, sparsification, hybrid and low-rank). We also propose a unified framework and API that allows for consistent and easy implementation of compressed communication on popular machine learning toolkits. We instantiate our API on TensorFlow and PyTorch, and implement 16 such methods. Finally, we present a thorough quantitative evaluation with a variety of DNNs (convolutional and recurrent), datasets and system configurations. We show that the DNN architecture affects the relative performance among methods. Interestingly, depending on the underlying communication library and computational cost of compression/decompression, we demonstrate that some methods may be impractical.},
+	title = {Compressed Communication for Distributed Deep Learning: Survey and Quantitative Evaluation},
+	url = {http://hdl.handle.net/10754/662495}
+}
+
+@article{DBLP:journals/corr/abs-1902-06855,
+  author    = {Peng Sun and
+               Wansen Feng and
+               Ruobing Han and
+               Shengen Yan and
+               Yonggang Wen},
+  title     = {Optimizing Network Performance for Distributed {DNN} Training on {GPU}
+               Clusters: ImageNet/AlexNet Training in 1.5 Minutes},
+  journal   = {CoRR},
+  volume    = {abs/1902.06855},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1902.06855},
+  eprinttype = {arXiv},
+  eprint    = {1902.06855},
+  timestamp = {Tue, 30 Jun 2020 12:26:07 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1902-06855.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/apsys/WangZGZ14,
+  author    = {Minjie Wang and
+               Hucheng Zhou and
+               Minyi Guo and
+               Zheng Zhang},
+  title     = {A scalable and topology configurable protocol for distributed parameter
+               synchronization},
+  booktitle = {Asia-Pacific Workshop on Systems, APSys'14, Beijing, China, June 25-26,
+               2014},
+  pages     = {13:1--13:7},
+  publisher = {{ACM}},
+  year      = {2014},
+  url       = {https://doi.org/10.1145/2637166.2637231},
+  doi       = {10.1145/2637166.2637231},
+  timestamp = {Mon, 12 Oct 2020 13:57:55 +0200},
+  biburl    = {https://dblp.org/rec/conf/apsys/WangZGZ14.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cloud/LuoNCPK18,
+  author    = {Liang Luo and
+               Jacob Nelson and
+               Luis Ceze and
+               Amar Phanishayee and
+               Arvind Krishnamurthy},
+  title     = {Parameter Hub: a Rack-Scale Parameter Server for Distributed Deep
+               Neural Network Training},
+  booktitle = {Proceedings of the {ACM} Symposium on Cloud Computing, SoCC 2018,
+               Carlsbad, CA, USA, October 11-13, 2018},
+  pages     = {41--54},
+  publisher = {{ACM}},
+  year      = {2018},
+  url       = {https://doi.org/10.1145/3267809.3267840},
+  doi       = {10.1145/3267809.3267840},
+  timestamp = {Wed, 21 Nov 2018 12:44:07 +0100},
+  biburl    = {https://dblp.org/rec/conf/cloud/LuoNCPK18.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/HoCCLKGGGX13,
+  author    = {Qirong Ho and
+               James Cipar and
+               Henggang Cui and
+               Seunghak Lee and
+               Jin Kyu Kim and
+               Phillip B. Gibbons and
+               Garth A. Gibson and
+               Gregory R. Ganger and
+               Eric P. Xing},
+  editor    = {Christopher J. C. Burges and
+               L{\'{e}}on Bottou and
+               Zoubin Ghahramani and
+               Kilian Q. Weinberger},
+  title     = {More Effective Distributed {ML} via a Stale Synchronous Parallel Parameter
+               Server},
+  booktitle = {Advances in Neural Information Processing Systems 26: 27th Annual
+               Conference on Neural Information Processing Systems 2013. Proceedings
+               of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States},
+  pages     = {1223--1231},
+  year      = {2013},
+  url       = {https://proceedings.neurips.cc/paper/2013/hash/b7bb35b9c6ca2aee2df08cf09d7016c2-Abstract.html},
+  timestamp = {Thu, 21 Jan 2021 15:15:23 +0100},
+  biburl    = {https://dblp.org/rec/conf/nips/HoCCLKGGGX13.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icml/MirhoseiniPLSLZ17,
+  author    = {Azalia Mirhoseini and
+               Hieu Pham and
+               Quoc V. Le and
+               Benoit Steiner and
+               Rasmus Larsen and
+               Yuefeng Zhou and
+               Naveen Kumar and
+               Mohammad Norouzi and
+               Samy Bengio and
+               Jeff Dean},
+  editor    = {Doina Precup and
+               Yee Whye Teh},
+  title     = {Device Placement Optimization with Reinforcement Learning},
+  booktitle = {Proceedings of the 34th International Conference on Machine Learning,
+               {ICML} 2017, Sydney, NSW, Australia, 6-11 August 2017},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {70},
+  pages     = {2430--2439},
+  publisher = {{PMLR}},
+  year      = {2017},
+  url       = {http://proceedings.mlr.press/v70/mirhoseini17a.html},
+  timestamp = {Wed, 29 May 2019 08:41:45 +0200},
+  biburl    = {https://dblp.org/rec/conf/icml/MirhoseiniPLSLZ17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cloud/WatcharapichatM16,
+  author    = {Pijika Watcharapichat and
+               Victoria Lopez Morales and
+               Raul Castro Fernandez and
+               Peter R. Pietzuch},
+  editor    = {Marcos K. Aguilera and
+               Brian Cooper and
+               Yanlei Diao},
+  title     = {Ako: Decentralised Deep Learning with Partial Gradient Exchange},
+  booktitle = {Proceedings of the Seventh {ACM} Symposium on Cloud Computing, Santa
+               Clara, CA, USA, October 5-7, 2016},
+  pages     = {84--97},
+  publisher = {{ACM}},
+  year      = {2016},
+  url       = {https://doi.org/10.1145/2987550.2987586},
+  doi       = {10.1145/2987550.2987586},
+  timestamp = {Tue, 06 Nov 2018 11:07:34 +0100},
+  biburl    = {https://dblp.org/rec/conf/cloud/WatcharapichatM16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/LianZZHZL17,
+  author    = {Xiangru Lian and
+               Ce Zhang and
+               Huan Zhang and
+               Cho{-}Jui Hsieh and
+               Wei Zhang and
+               Ji Liu},
+  editor    = {Isabelle Guyon and
+               Ulrike von Luxburg and
+               Samy Bengio and
+               Hanna M. Wallach and
+               Rob Fergus and
+               S. V. N. Vishwanathan and
+               Roman Garnett},
+  title     = {Can Decentralized Algorithms Outperform Centralized Algorithms? {A}
+               Case Study for Decentralized Parallel Stochastic Gradient Descent},
+  booktitle = {Advances in Neural Information Processing Systems 30: Annual Conference
+               on Neural Information Processing Systems 2017, December 4-9, 2017,
+               Long Beach, CA, {USA}},
+  pages     = {5330--5340},
+  year      = {2017},
+  url       = {https://proceedings.neurips.cc/paper/2017/hash/f75526659f31040afeb61cb7133e4e6d-Abstract.html},
+  timestamp = {Thu, 21 Jan 2021 15:15:21 +0100},
+  biburl    = {https://dblp.org/rec/conf/nips/LianZZHZL17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/GoyalDGNWKTJH17,
+  author    = {Priya Goyal and
+               Piotr Doll{\'{a}}r and
+               Ross B. Girshick and
+               Pieter Noordhuis and
+               Lukasz Wesolowski and
+               Aapo Kyrola and
+               Andrew Tulloch and
+               Yangqing Jia and
+               Kaiming He},
+  title     = {Accurate, Large Minibatch {SGD:} Training ImageNet in 1 Hour},
+  journal   = {CoRR},
+  volume    = {abs/1706.02677},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1706.02677},
+  eprinttype = {arXiv},
+  eprint    = {1706.02677},
+  timestamp = {Mon, 13 Aug 2018 16:49:10 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/GoyalDGNWKTJH17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/jpdc/PatarasukY09,
+  author    = {Pitch Patarasuk and
+               Xin Yuan},
+  title     = {Bandwidth optimal all-reduce algorithms for clusters of workstations},
+  journal   = {J. Parallel Distributed Comput.},
+  volume    = {69},
+  number    = {2},
+  pages     = {117--124},
+  year      = {2009},
+  url       = {https://doi.org/10.1016/j.jpdc.2008.09.002},
+  doi       = {10.1016/j.jpdc.2008.09.002},
+  timestamp = {Sat, 22 Feb 2020 19:35:25 +0100},
+  biburl    = {https://dblp.org/rec/journals/jpdc/PatarasukY09.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1807-11205,
+  author    = {Xianyan Jia and
+               Shutao Song and
+               Wei He and
+               Yangzihao Wang and
+               Haidong Rong and
+               Feihu Zhou and
+               Liqiang Xie and
+               Zhenyu Guo and
+               Yuanzhou Yang and
+               Liwei Yu and
+               Tiegang Chen and
+               Guangxiao Hu and
+               Shaohuai Shi and
+               Xiaowen Chu},
+  title     = {Highly Scalable Deep Learning Training System with Mixed-Precision:
+               Training ImageNet in Four Minutes},
+  journal   = {CoRR},
+  volume    = {abs/1807.11205},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1807.11205},
+  eprinttype = {arXiv},
+  eprint    = {1807.11205},
+  timestamp = {Thu, 28 Oct 2021 13:52:50 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1807-11205.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/taco/XuDZXL20,
+  author    = {Yemao Xu and
+               Dezun Dong and
+               Yawei Zhao and
+               Weixia Xu and
+               Xiangke Liao},
+  title     = {{OD-SGD:} One-Step Delay Stochastic Gradient Descent for Distributed
+               Training},
+  journal   = {{ACM} Trans. Archit. Code Optim.},
+  volume    = {17},
+  number    = {4},
+  pages     = {30:1--30:26},
+  year      = {2020},
+  url       = {https://doi.org/10.1145/3417607},
+  doi       = {10.1145/3417607},
+  timestamp = {Wed, 17 Feb 2021 22:02:30 +0100},
+  biburl    = {https://dblp.org/rec/journals/taco/XuDZXL20.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iclr/KeskarMNST17,
+  author    = {Nitish Shirish Keskar and
+               Dheevatsa Mudigere and
+               Jorge Nocedal and
+               Mikhail Smelyanskiy and
+               Ping Tak Peter Tang},
+  title     = {On Large-Batch Training for Deep Learning: Generalization Gap and
+               Sharp Minima},
+  booktitle = {5th International Conference on Learning Representations, {ICLR} 2017,
+               Toulon, France, April 24-26, 2017, Conference Track Proceedings},
+  publisher = {OpenReview.net},
+  year      = {2017},
+  url       = {https://openreview.net/forum?id=H1oyRlYgg},
+  timestamp = {Thu, 04 Apr 2019 13:20:07 +0200},
+  biburl    = {https://dblp.org/rec/conf/iclr/KeskarMNST17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@misc{grpc-and-zeromq-comparison, 
+   url={https://stackoverflow.com/questions/39350681/grpc-and-zeromq-comparsion},
+   title={grpc and zeromq comparsion},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@inproceedings{DBLP:conf/cloud/WeiDQHCGGGX15,
+  author    = {Jinliang Wei and
+               Wei Dai and
+               Aurick Qiao and
+               Qirong Ho and
+               Henggang Cui and
+               Gregory R. Ganger and
+               Phillip B. Gibbons and
+               Garth A. Gibson and
+               Eric P. Xing},
+  editor    = {Shahram Ghandeharizadeh and
+               Sumita Barahmand and
+               Magdalena Balazinska and
+               Michael J. Freedman},
+  title     = {Managed communication and consistency for fast data-parallel iterative
+               analytics},
+  booktitle = {Proceedings of the Sixth {ACM} Symposium on Cloud Computing, SoCC
+               2015, Kohala Coast, Hawaii, USA, August 27-29, 2015},
+  pages     = {381--394},
+  publisher = {{ACM}},
+  year      = {2015},
+  url       = {https://doi.org/10.1145/2806777.2806778},
+  doi       = {10.1145/2806777.2806778},
+  timestamp = {Tue, 06 Nov 2018 11:07:34 +0100},
+  biburl    = {https://dblp.org/rec/conf/cloud/WeiDQHCGGGX15.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/mlsys/HashemiJC19,
+  author    = {Sayed Hadi Hashemi and
+               Sangeetha Abdu Jyothi and
+               Roy H. Campbell},
+  editor    = {Ameet Talwalkar and
+               Virginia Smith and
+               Matei Zaharia},
+  title     = {TicTac: Accelerating Distributed Deep Learning with Communication
+               Scheduling},
+  booktitle = {Proceedings of Machine Learning and Systems 2019, MLSys 2019, Stanford,
+               CA, USA, March 31 - April 2, 2019},
+  publisher = {mlsys.org},
+  year      = {2019},
+  url       = {https://proceedings.mlsys.org/book/274.pdf},
+  timestamp = {Thu, 18 Jun 2020 15:48:01 +0200},
+  biburl    = {https://dblp.org/rec/conf/mlsys/HashemiJC19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nsdi/SapioC0NKKKMPR21,
+  author    = {Amedeo Sapio and
+               Marco Canini and
+               Chen{-}Yu Ho and
+               Jacob Nelson and
+               Panos Kalnis and
+               Changhoon Kim and
+               Arvind Krishnamurthy and
+               Masoud Moshref and
+               Dan R. K. Ports and
+               Peter Richt{\'{a}}rik},
+  editor    = {James Mickens and
+               Renata Teixeira},
+  title     = {Scaling Distributed Machine Learning with In-Network Aggregation},
+  booktitle = {18th {USENIX} Symposium on Networked Systems Design and Implementation,
+               {NSDI} 2021, April 12-14, 2021},
+  pages     = {785--808},
+  publisher = {{USENIX} Association},
+  year      = {2021},
+  url       = {https://www.usenix.org/conference/nsdi21/presentation/sapio},
+  timestamp = {Thu, 12 Aug 2021 18:19:16 +0200},
+  biburl    = {https://dblp.org/rec/conf/nsdi/SapioC0NKKKMPR21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/isca/LeeKCDKNSSCHSD10,
+  author    = {Victor W. Lee and
+               Changkyu Kim and
+               Jatin Chhugani and
+               Michael Deisher and
+               Daehyun Kim and
+               Anthony D. Nguyen and
+               Nadathur Satish and
+               Mikhail Smelyanskiy and
+               Srinivas Chennupaty and
+               Per Hammarlund and
+               Ronak Singhal and
+               Pradeep Dubey},
+  editor    = {Andr{\'{e}} Seznec and
+               Uri C. Weiser and
+               Ronny Ronen},
+  title     = {Debunking the 100X {GPU} vs. {CPU} myth: an evaluation of throughput
+               computing on {CPU} and {GPU}},
+  booktitle = {37th International Symposium on Computer Architecture {(ISCA} 2010),
+               June 19-23, 2010, Saint-Malo, France},
+  pages     = {451--460},
+  publisher = {{ACM}},
+  year      = {2010},
+  url       = {https://doi.org/10.1145/1815961.1816021},
+  doi       = {10.1145/1815961.1816021},
+  timestamp = {Fri, 09 Jul 2021 15:51:20 +0200},
+  biburl    = {https://dblp.org/rec/conf/isca/LeeKCDKNSSCHSD10.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/hpca/HazelwoodBBCDDF18,
+  author    = {Kim M. Hazelwood and
+               Sarah Bird and
+               David M. Brooks and
+               Soumith Chintala and
+               Utku Diril and
+               Dmytro Dzhulgakov and
+               Mohamed Fawzy and
+               Bill Jia and
+               Yangqing Jia and
+               Aditya Kalro and
+               James Law and
+               Kevin Lee and
+               Jason Lu and
+               Pieter Noordhuis and
+               Misha Smelyanskiy and
+               Liang Xiong and
+               Xiaodong Wang},
+  title     = {Applied Machine Learning at Facebook: {A} Datacenter Infrastructure
+               Perspective},
+  booktitle = {{IEEE} International Symposium on High Performance Computer Architecture,
+               {HPCA} 2018, Vienna, Austria, February 24-28, 2018},
+  pages     = {620--629},
+  publisher = {{IEEE} Computer Society},
+  year      = {2018},
+  url       = {https://doi.org/10.1109/HPCA.2018.00059},
+  doi       = {10.1109/HPCA.2018.00059},
+  timestamp = {Thu, 16 Apr 2020 12:04:00 +0200},
+  biburl    = {https://dblp.org/rec/conf/hpca/HazelwoodBBCDDF18.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/pvldb/ZouJLGWX14,
+  author    = {Yongqiang Zou and
+               Xing Jin and
+               Yi Li and
+               Zhimao Guo and
+               Eryu Wang and
+               Bin Xiao},
+  title     = {Mariana: Tencent Deep Learning Platform and its Applications},
+  journal   = {Proc. {VLDB} Endow.},
+  volume    = {7},
+  number    = {13},
+  pages     = {1772--1777},
+  year      = {2014},
+  url       = {http://www.vldb.org/pvldb/vol7/p1772-tencent.pdf},
+  doi       = {10.14778/2733004.2733082},
+  timestamp = {Mon, 26 Oct 2020 08:50:11 +0100},
+  biburl    = {https://dblp.org/rec/journals/pvldb/ZouJLGWX14.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/DeanCMCDLMRSTYN12,
+  author    = {Jeffrey Dean and
+               Greg Corrado and
+               Rajat Monga and
+               Kai Chen and
+               Matthieu Devin and
+               Quoc V. Le and
+               Mark Z. Mao and
+               Marc'Aurelio Ranzato and
+               Andrew W. Senior and
+               Paul A. Tucker and
+               Ke Yang and
+               Andrew Y. Ng},
+  editor    = {Peter L. Bartlett and
+               Fernando C. N. Pereira and
+               Christopher J. C. Burges and
+               L{\'{e}}on Bottou and
+               Kilian Q. Weinberger},
+  title     = {Large Scale Distributed Deep Networks},
+  booktitle = {Advances in Neural Information Processing Systems 25: 26th Annual
+               Conference on Neural Information Processing Systems 2012. Proceedings
+               of a meeting held December 3-6, 2012, Lake Tahoe, Nevada, United States},
+  pages     = {1232--1240},
+  year      = {2012},
+  url       = {https://proceedings.neurips.cc/paper/2012/hash/6aca97005c68f1206823815f66102863-Abstract.html},
+  timestamp = {Thu, 21 Jan 2021 15:15:23 +0100},
+  biburl    = {https://dblp.org/rec/conf/nips/DeanCMCDLMRSTYN12.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/tpds/LiSCLLTB20,
+  author    = {Ang Li and
+               Shuaiwen Leon Song and
+               Jieyang Chen and
+               Jiajia Li and
+               Xu Liu and
+               Nathan R. Tallent and
+               Kevin J. Barker},
+  title     = {Evaluating Modern {GPU} Interconnect: PCIe, NVLink, NV-SLI, NVSwitch
+               and GPUDirect},
+  journal   = {{IEEE} Trans. Parallel Distributed Syst.},
+  volume    = {31},
+  number    = {1},
+  pages     = {94--110},
+  year      = {2020},
+  url       = {https://doi.org/10.1109/TPDS.2019.2928289},
+  doi       = {10.1109/TPDS.2019.2928289},
+  timestamp = {Fri, 02 Oct 2020 14:40:00 +0200},
+  biburl    = {https://dblp.org/rec/journals/tpds/LiSCLLTB20.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/micro/AlwaniCFM16,
+  author    = {Manoj Alwani and
+               Han Chen and
+               Michael Ferdman and
+               Peter A. Milder},
+  title     = {Fused-layer {CNN} accelerators},
+  booktitle = {49th Annual {IEEE/ACM} International Symposium on Microarchitecture,
+               {MICRO} 2016, Taipei, Taiwan, October 15-19, 2016},
+  pages     = {22:1--22:12},
+  publisher = {{IEEE} Computer Society},
+  year      = {2016},
+  url       = {https://doi.org/10.1109/MICRO.2016.7783725},
+  doi       = {10.1109/MICRO.2016.7783725},
+  timestamp = {Wed, 15 Jul 2020 09:05:20 +0200},
+  biburl    = {https://dblp.org/rec/conf/micro/AlwaniCFM16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/fccm/ShenFM17,
+  author    = {Yongming Shen and
+               Michael Ferdman and
+               Peter A. Milder},
+  title     = {Escher: {A} {CNN} Accelerator with Flexible Buffering to Minimize
+               Off-Chip Transfer},
+  booktitle = {25th {IEEE} Annual International Symposium on Field-Programmable Custom
+               Computing Machines, {FCCM} 2017, Napa, CA, USA, April 30 - May 2,
+               2017},
+  pages     = {93--100},
+  publisher = {{IEEE} Computer Society},
+  year      = {2017},
+  url       = {https://doi.org/10.1109/FCCM.2017.47},
+  doi       = {10.1109/FCCM.2017.47},
+  timestamp = {Mon, 22 Mar 2021 07:52:33 +0100},
+  biburl    = {https://dblp.org/rec/conf/fccm/ShenFM17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/osdi/ChilimbiSAK14,
+  author    = {Trishul M. Chilimbi and
+               Yutaka Suzue and
+               Johnson Apacible and
+               Karthik Kalyanaraman},
+  editor    = {Jason Flinn and
+               Hank Levy},
+  title     = {Project Adam: Building an Efficient and Scalable Deep Learning Training
+               System},
+  booktitle = {11th {USENIX} Symposium on Operating Systems Design and Implementation,
+               {OSDI} '14, Broomfield, CO, USA, October 6-8, 2014},
+  pages     = {571--582},
+  publisher = {{USENIX} Association},
+  year      = {2014},
+  url       = {https://www.usenix.org/conference/osdi14/technical-sessions/presentation/chilimbi},
+  timestamp = {Tue, 02 Feb 2021 08:06:02 +0100},
+  biburl    = {https://dblp.org/rec/conf/osdi/ChilimbiSAK14.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/eurosys/CuiZGGX16,
+  author    = {Henggang Cui and
+               Hao Zhang and
+               Gregory R. Ganger and
+               Phillip B. Gibbons and
+               Eric P. Xing},
+  editor    = {Cristian Cadar and
+               Peter R. Pietzuch and
+               Kimberly Keeton and
+               Rodrigo Rodrigues},
+  title     = {GeePS: scalable deep learning on distributed GPUs with a GPU-specialized
+               parameter server},
+  booktitle = {Proceedings of the Eleventh European Conference on Computer Systems,
+               EuroSys 2016, London, United Kingdom, April 18-21, 2016},
+  pages     = {4:1--4:16},
+  publisher = {{ACM}},
+  year      = {2016},
+  url       = {https://doi.org/10.1145/2901318.2901323},
+  doi       = {10.1145/2901318.2901323},
+  timestamp = {Thu, 12 Nov 2020 16:34:18 +0100},
+  biburl    = {https://dblp.org/rec/conf/eurosys/CuiZGGX16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/usenix/ZhangZXDHLHWXX17,
+  author    = {Hao Zhang and
+               Zeyu Zheng and
+               Shizhen Xu and
+               Wei Dai and
+               Qirong Ho and
+               Xiaodan Liang and
+               Zhiting Hu and
+               Jinliang Wei and
+               Pengtao Xie and
+               Eric P. Xing},
+  editor    = {Dilma Da Silva and
+               Bryan Ford},
+  title     = {Poseidon: An Efficient Communication Architecture for Distributed
+               Deep Learning on {GPU} Clusters},
+  booktitle = {2017 {USENIX} Annual Technical Conference, {USENIX} {ATC} 2017, Santa
+               Clara, CA, USA, July 12-14, 2017},
+  pages     = {181--193},
+  publisher = {{USENIX} Association},
+  year      = {2017},
+  url       = {https://www.usenix.org/conference/atc17/technical-sessions/presentation/zhang},
+  timestamp = {Mon, 01 Feb 2021 08:43:34 +0100},
+  biburl    = {https://dblp.org/rec/conf/usenix/ZhangZXDHLHWXX17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@misc{Chainer, 
+   url={https://docs.chainer.org/en/stable/chainermn/index.html},
+   title={Chainer},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{DL4J, 
+   url={https://deeplearning4j.konduit.ai/spark/tutorials/dl4j-on-spark-quickstart#dl4js-distributed-training-implementations},
+   title={DL4J’s Distributed Training Implementations},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Keras, 
+   url={https://keras.io/guides/distributed_training/},
+   title={Keras - Multi-GPU and distributed training},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{MXNet, 
+   url={https://mxnet.apache.org/versions/1.8.0/},
+   title={MXNet},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{MXNet-with-Horovod, 
+   url={https://medium.com/apache-mxnet/distributed-training-using-apache-mxnet-with-horovod-44f98bf0e7b7},
+   title={Distributed Training using Apache MXNet with Horovod},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{PYTORCH-distributed, 
+   url={https://pytorch.org/tutorials/beginner/dist_overview.html},
+   title={PYTORCH DISTRIBUTED OVERVIEW},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Quantized, 
+   url={https://github.com/pytorch/QNNPACK},
+   title={Quantized Neural Networks PACKage},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Pytorch-QUANTIZATION, 
+   url={https://pytorch.org/docs/stable/quantization.html},
+   title={Pytorch QUANTIZATION},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{TORCH.DISTRIBUTED, 
+   url={https://pytorch.org/docs/stable/distributed.html?highlight=distributed#basics},
+   title={DISTRIBUTED COMMUNICATION PACKAGE - TORCH.DISTRIBUTED},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Signa, 
+   url={https://singa.apache.org/docs/dist-train/},
+   title={Signa - Distributed Training},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Distributed-training-with-TensorFlow, 
+   url={https://www.tensorflow.org/guide/distributed_training},
+   title={Distributed training with TensorFlow},
+   year={2021 Accesssed: 2021-12-20}
+}  
+
+@misc{TensorFlow-Optimize-further, 
+   url={https://www.tensorflow.org/model_optimization/guide/optimize_further},
+   title={TensorFlow - Optimize further},
+   year={2021 Accesssed: 2021-12-20}
+}  
+
+@misc{Post-training-quantization,
+   url={https://www.tensorflow.org/lite/performance/post_training_quantization},
+   title={Post-training quantization},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Quantization-aware-training,
+   url={https://www.tensorflow.org/model_optimization/guide/quantization/training},
+   title={Quantization aware training},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Quantization-aware-training-in-Keras-example ,
+   url={https://www.tensorflow.org/model_optimization/guide/quantization/training_example},
+   title={Quantization aware training in Keras example},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@inproceedings{DBLP:conf/osdi/AbadiBCCDDDGIIK16,
+  author    = {Mart{\'{\i}}n Abadi and
+               Paul Barham and
+               Jianmin Chen and
+               Zhifeng Chen and
+               Andy Davis and
+               Jeffrey Dean and
+               Matthieu Devin and
+               Sanjay Ghemawat and
+               Geoffrey Irving and
+               Michael Isard and
+               Manjunath Kudlur and
+               Josh Levenberg and
+               Rajat Monga and
+               Sherry Moore and
+               Derek Gordon Murray and
+               Benoit Steiner and
+               Paul A. Tucker and
+               Vijay Vasudevan and
+               Pete Warden and
+               Martin Wicke and
+               Yuan Yu and
+               Xiaoqiang Zheng},
+  editor    = {Kimberly Keeton and
+               Timothy Roscoe},
+  title     = {TensorFlow: {A} System for Large-Scale Machine Learning},
+  booktitle = {12th {USENIX} Symposium on Operating Systems Design and Implementation,
+               {OSDI} 2016, Savannah, GA, USA, November 2-4, 2016},
+  pages     = {265--283},
+  publisher = {{USENIX} Association},
+  year      = {2016},
+  url       = {https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi},
+  timestamp = {Tue, 02 Feb 2021 08:06:02 +0100},
+  biburl    = {https://dblp.org/rec/conf/osdi/AbadiBCCDDDGIIK16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@misc{Distributed-TensorFlow-training,
+   url={https://www.youtube.com/watch?v=bRMGoPqsn20},
+   title={Distributed TensorFlow training (Google I/O ’18)},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Inside-TensorFlow-tf.data-tf.distribute,
+   url={https://www.youtube.com/watch?v=ZnukSLKEw34},
+   title={Inside TensorFlow: tf.data + tf.distribute (Dev Summit 2019)},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Inside-TensorFlow-tf.distribute.Strategy,
+   url={https://www.youtube.com/watch?v=jKV53r9-H14},
+   title={Inside TensorFlow: tf.distribute.Strategy},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+@misc{Scaling-TensorFlow-2-models-to-multi-worker-GPUs,
+   url={https://www.youtube.com/watch?v=6ovfZW8pepo},
+   title={Scaling TensorFlow 2 models to multi-worker GPUs (TF Dev Summit ‘20)},
+   year={2021 Accesssed: 2021-12-20}
+}
+
+
