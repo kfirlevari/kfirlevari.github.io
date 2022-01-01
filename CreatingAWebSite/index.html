@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>DIY - Homepage with Jekyll &amp; Minimal Mistakes in GitHub. - Kfir Lev-Ari</title>
-<meta name="description" content="In this post, I’ll share how I built this website, i.e., one that is hosted in GitHub Pages, and powered by Jekyll &amp; Minimal Mistakes.">
+<meta name="description" content="In this post, I’ll share how I built this website, i.e., one hosted in GitHub Pages and powered by Jekyll &amp; Minimal Mistakes.">
 
 
   <meta name="author" content="Kfir Lev-Ari">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://kfirlevari.github.io/CreatingAWebSite/">
 
 
-  <meta property="og:description" content="In this post, I’ll share how I built this website, i.e., one that is hosted in GitHub Pages, and powered by Jekyll &amp; Minimal Mistakes.">
+  <meta property="og:description" content="In this post, I’ll share how I built this website, i.e., one hosted in GitHub Pages and powered by Jekyll &amp; Minimal Mistakes.">
 
 
 
@@ -293,7 +293,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="DIY - Homepage with Jekyll &amp; Minimal Mistakes in GitHub.">
-    <meta itemprop="description" content="In this post, I’ll share how I built this website,i.e., one that is hosted in GitHub Pages, and powered by Jekyll &amp; Minimal Mistakes.">
+    <meta itemprop="description" content="In this post, I’ll share how I built this website,i.e., one hosted in GitHub Pages and powered by Jekyll &amp; Minimal Mistakes.">
     <meta itemprop="datePublished" content="2021-12-21T00:00:00-08:00">
     
 
@@ -368,11 +368,11 @@
           </aside>
         
         <p>In this post, I’ll share how I built this website,
-i.e., one that is hosted in GitHub Pages, and powered by Jekyll &amp; Minimal Mistakes.</p>
+i.e., one hosted in GitHub Pages and powered by Jekyll &amp; Minimal Mistakes.</p>
 
-<p>I think that it can be done by anyone that is enthusiastic about learning new technologies (actually, a keyboard, a screen, and a connection to the internet are also required <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">).</p>
+<p>I think that it can be done by anyone enthusiastic about learning new technologies (actually, a keyboard, a screen, and a connection to the internet are also required <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">).</p>
 
-<p>I assume you have a basic familiarity with git. If you’re not sure how to work with git, you can start <a href="https://docs.github.com/en/get-started/using-git/about-git">here</a>.</p>
+<p>I assume you have a basic familiarity with git. If you’re unsure how to work with git, you can start <a href="https://docs.github.com/en/get-started/using-git/about-git">here</a>.</p>
 
 <p>And most important, questions and comments are welcome <img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20"></p>
 
@@ -381,9 +381,9 @@ i.e., one that is hosted in GitHub Pages, and powered by Jekyll &amp; Minimal Mi
 <h3 id="step-1-github-pages">Step 1. GitHub Pages</h3>
 
 <p>Like I mentioned, the site is hosted in GitHub Pages. What does it mean? see <a href="https://pages.github.com/">here</a>.
-A good starting point is to follow the instructions in that link and to create your website repository (at &lt;your GitHub username&gt;.github.io).</p>
+A good starting point is to follow the instructions in that link and create your website repository (at &lt;your GitHub username&gt;.github.io).</p>
 
-<p>Later you’ll place there the content of your website. For now, you should only be able to see there the “Hello World” page.</p>
+<p>Later you’ll place there the content of your website. But, for now, you should only be able to see the “Hello World” page there.</p>
 
 <p>Let’s also create a local clone of your website repository. E.g., to “/Repos/&lt;your GitHub username&gt;.github.io” directory.</p>
 
@@ -395,18 +395,18 @@ A good starting point is to follow the instructions in that link and to create y
 
 <p>So basically, Jekyll can build a website from files that we write in a markup language. What markup language we’ll use? a simple one named <a href="https://www.markdownguide.org/getting-started/">Markdown</a>.</p>
 
-<p>In order to run Jekyll, we need to prepare our environment. You should install the requirements listed <a href="https://jekyllrb.com/docs/installation/#requirements">here</a> (i.e., Ruby, RubyGems, GCC, and Make). If you’re not sure how then follow the installation guide that matches your operating system <a href="https://jekyllrb.com/docs/installation/#guides">here</a>.</p>
+<p>To run Jekyll, we need to prepare our environment. First, you should install the requirements listed <a href="https://jekyllrb.com/docs/installation/#requirements">here</a> (i.e., Ruby, RubyGems, GCC, and Make) if you’re not sure how then follow the installation guide that matches your operating system <a href="https://jekyllrb.com/docs/installation/#guides">here</a>.</p>
 
 <p>What’s Minimal Mistakes? From <a href="https://mmistakes.github.io/minimal-mistakes/about/">here</a>: “A flexible two-column Jekyll theme”. We’ll see later how to import it.</p>
 
 <h3 id="step-3-source-directory-preparations">Step 3. Source Directory Preparations</h3>
 
-<p>Jekyll will transform a source directory into a website. In order to verify the changes that we do in the source directory while working on our website, and also to be resilient to failures (so that we won’t lose the source of our website if our computer crashes), we’ll use online version control.</p>
+<p>Jekyll will transform a source directory into a website. To verify the changes that we do in the source directory while working on our website and be resilient to failures (so that we won’t lose the source of our website if our computer crashes), we’ll use online version control.</p>
 
-<p>In this step, you should create a new repository for the source directory.
-For example - you can create another repository in GitHub, it can be a private one this time (unlike &lt;your GitHub username&gt;.github.io that needs to be public).</p>
+<p>It would help to create a new repository for the source directory in this step.
+For example - you can create another repository in GitHub. This time, it can be private (unlike &lt;your GitHub username&gt;.github.io that needs to be public).</p>
 
-<p>After you created the source directory repository, clone it locally (e.g., to “/Repos/source” directory). We populate it in the next step.</p>
+<p>After creating the source directory repository, clone it locally (e.g., to “/Repos/source” directory). Then, we populate it in the next step.</p>
 
 <h3 id="step-4-importing-minimal-mistakes">Step 4. Importing Minimal Mistakes</h3>
 
@@ -417,7 +417,7 @@ After this step, we won’t use “Repos/minimal-mistakes”, so you can delete 
 
 <h3 id="step-5-populate-the-gemfile">Step 5. Populate the GemFile</h3>
 
-<p>What is RubyGems (that we installed as part of <a href="#step-2-preparations-for-jekyll--minimal-mistakes">Step 2</a>)? From <a href="https://en.wikipedia.org/wiki/RubyGems">here</a>: “RubyGems is a package manager for the Ruby programming language that provides a standard format for distributing Ruby programs and libraries (in a self-contained format called a "gem"), a tool designed to easily manage the installation of gems, and a server for distributing them.”</p>
+<p>What is RubyGems (that we installed as part of <a href="#step-2-preparations-for-jekyll--minimal-mistakes">Step 2</a>)? From <a href="https://en.wikipedia.org/wiki/RubyGems">here</a>: “RubyGems is a package manager for the Ruby programming language that provides a standard format for distributing Ruby programs and libraries (in a self-contained format called a \ “gem"), a tool designed to manage the installation of gems easily, and a server for distributing them.”</p>
 
 <p>We will populate the GemFile in “/Repos/source” with the packages that our website needs.</p>
 
@@ -435,7 +435,7 @@ gem 'jekyll-scholar', group: :jekyll_plugins
 <ul>
   <li>github-pages, and jekyll-include-cache: required for us to be able to run our theme in GitHub Pages, as explained <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#remote-theme-method">here</a>.</li>
   <li>jekyll-academicons-svg: in order to use <a href="https://jpswalsh.github.io/academicons/">academicons</a>. Plugin repo <a href="https://github.com/sylvainmetayer/jekyll-academicons-svg">here</a>.</li>
-  <li>jemoji: because one can’t really express oneself online these days without emojis, or can we <img class="emoji" title=":thinking:" alt=":thinking:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f914.png" height="20" width="20">? Plugin repo <a href="https://github.com/jekyll/jemoji">here</a>.</li>
+  <li>jemoji: because one can’t express oneself online these days without emojis, or can we <img class="emoji" title=":thinking:" alt=":thinking:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f914.png" height="20" width="20">? Plugin repo <a href="https://github.com/jekyll/jemoji">here</a>.</li>
   <li>jekyll-scholar: gives you citation superpowers, as explained <a href="https://github.com/inukshuk/jekyll-scholar">here</a>.</li>
 </ul>
 
@@ -451,7 +451,7 @@ gem 'jekyll-scholar', group: :jekyll_plugins
 
 <h3 id="step-1-set-repository-name">Step 1. Set Repository Name</h3>
 
-<p>The config file “_config.yml” contains many knobs, see <a href="https://mmistakes.github.io/minimal-mistakes/docs/configuration/">here</a> for the full list.</p>
+<p>The config file “_config.yml” contains many knobs. See <a href="https://mmistakes.github.io/minimal-mistakes/docs/configuration/">here</a> for the full list.</p>
 
 <p>You don’t have to update all of them right now, but you do need to set some of them -</p>
 
@@ -466,7 +466,7 @@ gem 'jekyll-scholar', group: :jekyll_plugins
     <p>Comment out both “theme:” and “remote theme:” lines - we’re using a local copy of Minimal Mistakes, so we don’t need to import anything else.</p>
   </li>
   <li>
-    <p>Make sure that you have ‘jekyll-include-cache’ in the plugins array. Here is my plugins array (I think you’ll have the first 5):</p>
+    <p>Make sure that you have ‘jekyll-include-cache’ in the plugins array. For example, here is my plugins array (I think you’ll have the first 5):</p>
   </li>
 </ul>
 
@@ -486,17 +486,17 @@ gem 'jekyll-scholar', group: :jekyll_plugins
 
 <p><code class="language-plaintext highlighter-rouge">bundle</code></p>
 
-<p>and after all went well, run:</p>
+<p>and once all went well, run:</p>
 
 <p><code class="language-plaintext highlighter-rouge">bundle exec jekyll serve --incremental --verbose</code></p>
 
-<p>You should be able to see your new website at <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+<p>You should see your new website at <a href="http://localhost:4000">http://localhost:4000</a>.</p>
 
 <p>Note that the optional –incremental flag enables you to test your website while changing it (but it’s experimental, see <a href="https://jekyllrb.com/docs/configuration/incremental-regeneration/">here</a>), and the optional –verbose flag can help you debug issues you have in can Jekyll fails to build your site.</p>
 
 <h3 id="step-3-design-your-website">Step 3. Design Your Website</h3>
 
-<p>I’m no web designer, so I really don’t know what’s the right protocol here <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">. But let me share a few things that I did and might help you, do them in any order you see fit:</p>
+<p>I’m no web designer, so I don’t know the right protocol here <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">. But let me share a few things that I did and might help you, do them in any order you see fit:</p>
 
 <h4 id="config-file">Config file</h4>
 
@@ -504,7 +504,7 @@ gem 'jekyll-scholar', group: :jekyll_plugins
 
 <h4 id="navigation">Navigation</h4>
 
-<p>In _data/navigation.yml there’s the main array, based on it the links at the top are generated. E.g., my main array is:</p>
+<p>In _data/navigation.yml there’s the main array. Based on it, the links at the top are generated. E.g., my main array is:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main:
   - title: "Blog"
     url: /blog/
@@ -526,7 +526,7 @@ You should add a .md file in /_pages for every link that you added in the main a
 E.g., I have /_pages/personal.md, that corresponds to the personal page.</li>
   <li>If you want a blog, create a new directory named “_posts” (see also <a href="https://mmistakes.github.io/minimal-mistakes/docs/posts/">here</a>, and <a href="https://jekyllrb.com/docs/posts/">here</a>).
 Follow the name format when creating new posts. Note that only posts in the past are visible by default in the blog.</li>
-  <li>Your front page is generated based on index.html file.</li>
+  <li>Your front page is generated based on the index.html file.</li>
 </ul>
 
 <h4 id="front-matter-and-layouts">Front Matter and Layouts</h4>
@@ -535,7 +535,7 @@ Follow the name format when creating new posts. Note that only posts in the past
 For example, the front matter of this page is:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 layout: single
-title:  "DIY - Homepage with Jekyll &amp; Minimal Mistakes in GitHub."
+title: "DIY - Homepage with Jekyll &amp; Minimal Mistakes in GitHub."
 toc: true
 toc_label: "Steps"
 toc_icon: "shoe-prints"
@@ -544,10 +544,10 @@ toc_sticky: true
 </code></pre></div></div>
 <p>(“toc” stands for Table Of Content <img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20">)</p>
 
-<p>You set the layout of the page by changing these values (e.g., the layout of this page is “single”).
+<p>You set the page’s layout by changing these values (e.g., the layout of this page is “single”).
 For all Minimal Mistakes layouts, see <a href="https://mmistakes.github.io/minimal-mistakes/docs/layouts/">here</a>.</p>
 
-<p>Note that we copied Minimal Mistakes source code to our project folder (our source directory), this means that you can modify every template that you want, just be sure that you know what you’re doing <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
+<p>We copied Minimal Mistakes source code to our project folder (our source directory). This means that you can modify every template that you want, just be sure that you know what you’re doing <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
 
 <ul>
   <li>E.g., the “single” layout file is found at _layouts/single.html.</li>
@@ -559,9 +559,9 @@ For all Minimal Mistakes layouts, see <a href="https://mmistakes.github.io/minim
 <p>Generally, I did the following:</p>
 <ul>
   <li>Created /assets/bibliography directory</li>
-  <li>Placed there a bib style file (*.csl). Chose your favorite, or modify one, there are too many out there. I used <a href="https://github.com/pascalpoizat/pascalpoizat.github.io/blob/master/src/_bibliography/mystyle.csl">this style</a>.</li>
-  <li>Also placed there references.bib file with all the bibtex citations.</li>
-  <li>In the config file, created this array:</li>
+  <li>Placed there a bib style file (*.csl). Chose your favorite, or modify one; there are too many out there. I used <a href="https://github.com/pascalpoizat/pascalpoizat.github.io/blob/master/src/_bibliography/mystyle.csl">this style</a>.</li>
+  <li>Also placed a references.bib file with all the BibTeX citations.</li>
+  <li>In the config file, create this array:</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scholar:
@@ -589,12 +589,12 @@ header:
 ---
 </code></pre></div></div>
 
-<p>Note that the header part relates to the header image, and the classes is for setting a wide screen. Also, you shouldn’t have a space between { and %, or % and }.</p>
+<p>Note that the header part relates to the header image, and the “classes” is for setting a widescreen. Also, you shouldn’t have a space between { and %, or % and }.</p>
 
 <h4 id="version-control">Version Control</h4>
 
 <p>Just a reminder - if you followed my advice and created your source directory as a git repository, don’t forget to use git!
-Do small deltas of commit + push (e.g., once you’re done editing something at some page, push it to the remote source repository).</p>
+Do small deltas of commit + push (e.g., push it to the remote source repository once you’re done editing something on some page).</p>
 
 <p>You don’t want to work on something, delete it by mistake, and then find out that there’s no way to restore it <img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20">.</p>
 
@@ -610,10 +610,9 @@ Do small deltas of commit + push (e.g., once you’re done editing something at 
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll build
 </code></pre></div></div>
-<p>as instructed <a href="https://jekyllrb.com/docs/step-by-step/01-setup/#build">here</a>. Note that if you’re running “bundle exec jekyll serve”, the site that is created isn’t the same one as the one created with build.</p>
+<p>as instructed <a href="https://jekyllrb.com/docs/step-by-step/01-setup/#build">here</a>. Note that if you’re running “bundle exec jekyll serve”, the site created isn’t the same as the one created with “build”.</p>
 
 <p>Then, copy the generated site to your local /Repos/&lt; your GitHub username &gt;.github.io directory, and push it to GitHub. Good luck <img class="emoji" title=":crossed_fingers:" alt=":crossed_fingers:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f91e.png" height="20" width="20">.</p>
-
 
         
       </section>
@@ -714,7 +713,7 @@ Do small deltas of commit + push (e.g., once you’re done editing something at 
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2021 Kfir Lev-Ari. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">© 2022 Kfir Lev-Ari. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
