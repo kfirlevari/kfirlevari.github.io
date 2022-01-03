@@ -608,9 +608,10 @@ Do small deltas of commit + push (e.g., push it to the remote source repository 
 
 <p>You should build your site with</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll build
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JEKYLL_ENV=production bundle exec jekyll build
 </code></pre></div></div>
-<p>as instructed <a href="https://jekyllrb.com/docs/step-by-step/01-setup/#build">here</a>. Note that if you’re running “bundle exec jekyll serve”, the site created isn’t the same as the one created with “build”.</p>
+<p>as instructed <a href="https://jekyllrb.com/docs/step-by-step/01-setup/#build">here</a>. Note that if you’re running “bundle exec jekyll serve”, the site created isn’t the same as the one created with “build”.
+Also, we need JEKYLL_ENV=production - more details <a href="https://jekyllrb.com/docs/configuration/environments/">here</a>.</p>
 
 <p>Then, copy the generated site to your local /Repos/&lt; your GitHub username &gt;.github.io directory, and push it to GitHub. Good luck <img class="emoji" title=":crossed_fingers:" alt=":crossed_fingers:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f91e.png" height="20" width="20">.</p>
 
@@ -721,6 +722,21 @@ Do small deltas of commit + push (e.g., push it to the remote source repository 
     
   <script src="/assets/js/main.min.js"></script>
 
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CYB6SXB214"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CYB6SXB214', { 'anonymize_ip': false});
+</script>
 
 
 
