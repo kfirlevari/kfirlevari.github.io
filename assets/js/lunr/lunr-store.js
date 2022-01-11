@@ -4,4 +4,10 @@ var store = [{
         "tags": [],
         "url": "/CreatingAWebSite/",
         "teaser": "/assets/images/banner.png"
+      },{
+        "title": "Distributed Deep Neural Network (DNN) Training for Practitioners",
+        "excerpt":"I love both distributed systems and machine learning. However, when I started grad school, I wasn’t sure which one to choose. In my first semester, the ML 101 course wasn’t taught while parallel computing 101 did, and so I decided based on availability :smile: This topic of distributed training fascinates...","categories": [],
+        "tags": [],
+        "url": "/DNN-Training/",
+        "teaser": "/assets/images/banner.png"
       }]
