@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://kfirlevari.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kfirlevari.github.io/" rel="alternate" type="text/html" /><updated>2022-01-11T13:06:04-08:00</updated><id>https://kfirlevari.github.io/feed.xml</id><title type="html">Kfir Lev-Ari</title><subtitle>Kfir Lev-Ari's Homepage</subtitle><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><entry><title type="html">Distributed Deep Neural Network (DNN) Training for Practitioners</title><link href="https://kfirlevari.github.io/DNN-Training/" rel="alternate" type="text/html" title="Distributed Deep Neural Network (DNN) Training for Practitioners" /><published>2022-01-11T00:00:00-08:00</published><updated>2022-01-11T00:00:00-08:00</updated><id>https://kfirlevari.github.io/DNN-Training</id><content type="html" xml:base="https://kfirlevari.github.io/DNN-Training/">&lt;p&gt;I love both distributed systems and machine learning. However, when I started grad school, I wasn’t sure which one to choose. In my first semester, the ML 101 course wasn’t taught while  parallel computing 101 did, and so I decided based on availability :smile:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://kfirlevari.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kfirlevari.github.io/" rel="alternate" type="text/html" /><updated>2022-01-15T19:31:16-08:00</updated><id>https://kfirlevari.github.io/feed.xml</id><title type="html">Kfir Lev-Ari</title><subtitle>Kfir Lev-Ari's Homepage</subtitle><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><entry><title type="html">Machine Learning Knowledge Graph</title><link href="https://kfirlevari.github.io/ML-World/" rel="alternate" type="text/html" title="Machine Learning Knowledge Graph" /><published>2022-01-15T00:00:00-08:00</published><updated>2022-01-15T00:00:00-08:00</updated><id>https://kfirlevari.github.io/ML-World</id><content type="html" xml:base="https://kfirlevari.github.io/ML-World/">&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/ml-world-post/ml-dag.css&quot; /&gt;
+
+&lt;p&gt;Anat (my wife) told me that it would be nice to have a graphical representation of the different terms and domains in ML. I remember seeing static images of that type online, but I didn’t find a dynamic knowledge graph that gives a clearer picture for a selected term.
+I thought it would be interesting to implement one as a weekend project, and this post is the result of that attempt :crossed_fingers:.&lt;/p&gt;
+
+&lt;p&gt;Generally, the first step was to create (manually) &lt;a href=&quot;/assets/datasets/ml-world.json&quot;&gt;this&lt;/a&gt; small file, based on Wikipedia. It consists of the main ML terms and their relations. I intend to extend it soon since the first version covers just the basics. In addition, I will happily expand/fix it based on any suggestion I’ll get in the comments :wink:.&lt;/p&gt;
+
+&lt;p&gt;Then, I used javascript magic (mostly dark magic, &lt;a href=&quot;/assets/js/ml-world-post/ml-dag.js&quot;&gt;here&lt;/a&gt;) to generate the graph, fuzzy search, and optional Wikipedia previews.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The first impression you might get is -&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/ml-world/cant-see.jpeg&quot; alt=&quot;&quot; style=&quot;width: 25%; margin: auto&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;That’s because without selecting any term, you simply see the whole picture (no pun intended).&lt;/p&gt;
+
+&lt;p&gt;Note that the javascript code doesn’t support touch screens at this point, so I would recommend viewing this graph on a device that has a touchpad/mouse.&lt;/p&gt;
+
+&lt;p&gt;You have the following tools here that should help make the graph more usable:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use the mouse-wheel to zoom in and out.&lt;/li&gt;
+  &lt;li&gt;Click on any node to focus on the specific term - you’ll see its parents and direct children.&lt;/li&gt;
+  &lt;li&gt;To move the whole graph - click on any location that is not a node and drag it.&lt;/li&gt;
+  &lt;li&gt;Select the WikiPreview option to see a summary from Wikipedia when hovering above a node.&lt;/li&gt;
+  &lt;li&gt;And last but not least, use the search box.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;input type=&quot;checkbox&quot; id=&quot;myCheckbox&quot; /&gt; Show WikiPreview&lt;/p&gt;
+
+&lt;div class=&quot;autocomplete&quot;&gt;
+    &lt;input id=&quot;search&quot; type=&quot;text&quot; placeholder=&quot;Search..&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;content&quot;&gt;
+&lt;svg&gt;&lt;/svg&gt;
+&lt;/p&gt;
+&lt;div class=&quot;popup-container&quot;&gt;&lt;/div&gt;
+
+&lt;script src=&quot;/assets/js/wikipedia-preview.production.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/fuse.js@6.5.3&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://d3js.org/d3.v7.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/d3-dag@0.9.0&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;/assets/js/ml-world-post/ml-dag.js&quot;&gt;&lt;/script&gt;</content><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">Distributed Deep Neural Network (DNN) Training for Practitioners</title><link href="https://kfirlevari.github.io/DNN-Training/" rel="alternate" type="text/html" title="Distributed Deep Neural Network (DNN) Training for Practitioners" /><published>2022-01-11T00:00:00-08:00</published><updated>2022-01-11T00:00:00-08:00</updated><id>https://kfirlevari.github.io/DNN-Training</id><content type="html" xml:base="https://kfirlevari.github.io/DNN-Training/">&lt;p&gt;I love both distributed systems and machine learning. However, when I started grad school, I wasn’t sure which one to choose. In my first semester, the ML 101 course wasn’t taught while  parallel computing 101 did, and so I decided based on availability :smile:&lt;/p&gt;
 
 &lt;p&gt;This topic of distributed training fascinates me because it combines essential aspects of both domains.&lt;/p&gt;
 

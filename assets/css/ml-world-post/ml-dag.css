@@ -55,3 +55,15 @@ input[type=submit] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+[data-wikipedia-preview] {
+	background-color: yellow;
+}
+
+.draggable {
+  cursor: move;
+}
+
+.static {
+    cursor: grab;
+}

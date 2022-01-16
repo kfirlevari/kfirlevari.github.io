@@ -10,4 +10,10 @@ var store = [{
         "tags": [],
         "url": "/DNN-Training/",
         "teaser": "/assets/images/banner.png"
+      },{
+        "title": "Machine Learning Knowledge Graph",
+        "excerpt":"Anat (my wife) told me that it would be nice to have a graphical representation of the different terms and domains in ML. I remember seeing static images of that type online, but I didn’t find a dynamic knowledge graph that gives a clearer picture for a selected term. I...","categories": [],
+        "tags": [],
+        "url": "/ML-World/",
+        "teaser": "/assets/images/banner.png"
       }]

@@ -12,10 +12,63 @@ var dagWidth;
 var dagHeight;
 var nodeIdToJSONObj;
 var full_json_data;
+//var selected_name;
 
 const nodeWidth = 250;
 const nodeHeight = 30;
 
+var zoom = {
+  scaleFactor: 1.1,
+};
+
+var svg;
+var point;
+var viewBox;
+
+d3.select("#myCheckbox").on("change", set_wikipreview_state);
+
+function set_wikipreview_state() {
+    if (d3.select("#myCheckbox").property("checked")) {
+        d3.select(".popup-container")
+            .style('display', 'block');
+    } else {
+        d3.select(".popup-container").style('display', 'none');
+    }
+}
+
+function onWheel(event) {
+    
+  event.preventDefault();
+    
+  var normalized;  
+  var delta = event.wheelDelta;
+
+  if (delta) {
+    normalized = (delta % 120) == 0 ? delta / 120 : delta / 12;
+  } else {
+    delta = event.deltaY || event.detail || 0;
+    normalized = -(delta % 3 ? delta * 10 : delta / 3);
+  }
+  
+  var scaleDelta = normalized > 0 ? 1 / zoom.scaleFactor : zoom.scaleFactor;
+  
+  point.x = event.clientX;
+  point.y = event.clientY;
+  
+  var startPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+    
+  var fromVars = {
+    x: viewBox.x,
+    y: viewBox.y,
+    width: viewBox.width,
+    height: viewBox.height,
+  };
+  
+  viewBox.x -= (startPoint.x - viewBox.x) * (scaleDelta - 1);
+  viewBox.y -= (startPoint.y - viewBox.y) * (scaleDelta - 1);
+  viewBox.width *= scaleDelta;
+  viewBox.height *= scaleDelta;
+}
 
 function addActive(x) {
     if (!x) return false;
@@ -43,8 +96,6 @@ function closeAllLists(elmnt) {
 d3.select("#search").on('input', function(event) {
     if (event.target.value.length < 2) {
         closeAllLists();
-        //reset_rects();
-        //        reset_visible_and_active();
         return;
     }
     const result = fuse.search(event.target.value);
@@ -90,27 +141,6 @@ d3.select("#search").on("keydown", function(e) {
     }
 });
 
-const reset_rects = function() {
-    nodes.selectAll('rect')
-        .style('fill', n => colorMap.get(n.data.id))
-        .style('stroke', n => colorMap.get(n.data.id))
-        .attr('width', nodeWidth)
-        .attr('height', nodeHeight)
-        .attr('x', -nodeWidth/2.0)
-        .attr('y', -nodeHeight/2.0)
-        .attr('rx', nodeHeight/2.0)
-        .attr('ry', nodeHeight/2.0)
-}
-
-const reset_visible_and_active = function() {
-    nodes.classed("active", false)
-        .style("visibility", "visible");
-    edges.style("visibility", "visible");
-    arrows.style("visibility", "visible");
-    svgSelection.attr("viewBox", [0, 0, dagWidth, dagHeight].join(" "));
-}
-
-
 const init_dag = function(data, layout_type) {
     dag = d3.dagStratify()(data);
 
@@ -123,7 +153,7 @@ const init_dag = function(data, layout_type) {
         layout = d3
             .sugiyama() // base layout
             .decross(d3.decrossOpt()) // minimize number of crossings
-            .nodeSize((node) => [(node ? 1.35 : 0.4) * nodeWidth, 5 * nodeHeight]);
+            .nodeSize((node) => [(node ? 1.35 : 0.4) * nodeWidth, 4 * nodeHeight]);
     }
 
     const dagLayoutDim = layout(dag);
@@ -131,10 +161,109 @@ const init_dag = function(data, layout_type) {
     dagHeight = dagLayoutDim.height
     svgSelection = d3.select("svg");
     svgSelection.selectAll('*').remove();
-    svgSelection.attr("width", 100);
-    svgSelection.attr("height", 50);
+    svgSelection.attr("width", 200);
+    heightByDagHeight = {}
+    heightByDagHeight[1] = 60;
+    heightByDagHeight[2] = heightByDagHeight[1];
+    heightByDagHeight[3] = heightByDagHeight[1];
+    heightByDagHeight[4] = dag.size() < 15 ? 120 : 150;
+    heightByDagHeight[5] = heightByDagHeight[4];
+    heightByDagHeight[6] = heightByDagHeight[4];
+    heightByDagHeight[7] = heightByDagHeight[4];
+    svgHeight = dag.height().value < 8 ? heightByDagHeight[dag.height().value] : 150;
+    
+    svgSelection.attr("height", svgHeight);
     svgSelection.attr("viewBox", [0, 0, dagWidth, dagHeight].join(" "));
     allDagNodes = dag.descendants();
+
+    svg = svgSelection.node();
+    svg.addEventListener("wheel", onWheel, { passive: false });
+    point = svg.createSVGPoint();
+    viewBox = svg.viewBox.baseVal;
+
+    setup_drag();
+}
+
+const setup_drag = function() {
+
+    // If browser supports pointer events
+    if (window.PointerEvent) {
+        svg.addEventListener('pointerdown', onPointerDown); // Pointer is pressed
+        svg.addEventListener('pointerup', onPointerUp); // Releasing the pointer
+        svg.addEventListener('pointerleave', onPointerUp); // Pointer gets out of the SVG area
+        svg.addEventListener('pointermove', onPointerMove); // Pointer is moving
+    } else {
+        // Add all mouse events listeners fallback
+        svg.addEventListener('mousedown', onPointerDown); // Pressing the mouse
+        svg.addEventListener('mouseup', onPointerUp); // Releasing the mouse
+    svg.addEventListener('mouseleave', onPointerUp); // Mouse gets out of the SVG area
+    svg.addEventListener('mousemove', onPointerMove); // Mouse is moving
+
+    // Add all touch events listeners fallback
+    svg.addEventListener('touchstart', onPointerDown); // Finger is touching the screen
+    svg.addEventListener('touchend', onPointerUp); // Finger is no longer touching the screen
+    svg.addEventListener('touchmove', onPointerMove); // Finger is moving
+}
+
+    // Create an SVG point that contains x & y values
+    var point = svg.createSVGPoint();
+    // This function returns an object with X & Y values from the pointer event
+    function getPointFromEvent (event) {
+        
+        // If even is triggered by a touch event, we get the position of the first finger
+        if (event.targetTouches) {
+            point.x = event.targetTouches[0].clientX;
+            point.y = event.targetTouches[0].clientY;
+        } else {
+            point.x = event.clientX;
+            point.y = event.clientY;
+        }
+        
+        // We get the current transformation matrix of the SVG and we inverse it
+        var invertedSVGMatrix = svg.getScreenCTM().inverse();
+        
+        return point.matrixTransform(invertedSVGMatrix);
+    }
+
+    // This variable will be used later for move events to check if pointer is down or not
+    var isPointerDown = false;
+
+    // This variable will contain the original coordinates when the user start pressing the mouse or touching the screen
+    var pointerOrigin;
+
+    // Function called by the event listeners when user start pressing/touching
+    function onPointerDown(event) {
+        isPointerDown = true; // We set the pointer as down
+        
+        // We get the pointer position on click/touchdown so we can get the value once the user starts to drag
+        pointerOrigin = getPointFromEvent(event);
+    }
+
+    // We save the original values from the viewBox
+    var viewBox = svg.viewBox.baseVal;
+
+    // Function called by the event listeners when user start moving/dragging
+    function onPointerMove (event) {
+        // Only run this function if the pointer is down
+        if (!isPointerDown) {
+            return;
+        }
+        // This prevent user to do a selection on the page
+        event.preventDefault();
+
+        // Get the pointer position as an SVG Point
+        var pointerPosition = getPointFromEvent(event);
+
+        // Update the viewBox variable with the distance from origin and current position
+        // We don't need to take care of a ratio because this is handled in the getPointFromEvent function
+        viewBox.x -= (pointerPosition.x - pointerOrigin.x);
+        viewBox.y -= (pointerPosition.y - pointerOrigin.y);
+}
+
+function onPointerUp() {
+  // The pointer is no longer considered as down
+  isPointerDown = false;
+}
 }
 
 const draw_dag = function() {
@@ -177,6 +306,8 @@ const draw_dag = function() {
                 .attr("stop-color", colorMap.get(target.data.id));
             return `url(#${gradId})`;
         })
+
+    svgSelection.attr('class', 'draggable');
     
     // Select nodes
     nodes = svgSelection
@@ -186,7 +317,8 @@ const draw_dag = function() {
         .enter()
         .append("g")
         .attr("transform", ({ x, y }) => `translate(${x}, ${y})`)
-        .attr("id", "node_g") 
+        .attr("id", "node_g")
+        .attr('class', 'static')
         .on('click', node_click)
     
     // Plot nodes
@@ -200,6 +332,9 @@ const draw_dag = function() {
         .attr('height', nodeHeight)
         .attr('fill', n => colorMap.get(n.data.id))
         .attr('stroke', n => colorMap.get(n.data.id))
+        .attr('data-wp-title', (n) => n.data.wpTitle)
+        .attr('class', "wiki")
+
     
     const arrow = d3.symbol().type(d3.symbolTriangle).size( nodeHeight * nodeHeight / 6.0);
     arrows = svgSelection.append('g')
@@ -242,6 +377,10 @@ const draw_dag = function() {
         .attr('alignment-baseline', 'middle')
         .attr('fill', 'white')
         .text((d) => d.data.name)
+        .attr('data-wp-title', (n) => n.data.wpTitle)
+        .attr('class', "wiki")
+
+        
     // To split the text to lines:
     //.each(function (d) {
     //    if (d.data.name!=undefined) {
@@ -256,17 +395,42 @@ const draw_dag = function() {
     //       }
     //    }
     //});
+
+    wikipediaPreview.init({
+        root: document.querySelector('.content'),
+        selector: '.wiki',
+        popupContainer: document.querySelector('.popup-container'),
+    });
+
+    set_wikipreview_state();
+    
+    //if (typeof selected_name !== 'undefined') {
+    //    console.log(selected_name)
+    //}
+    //console.log(nodes.size())
 }
 const plot_full_graph = function() {
     init_dag(full_json_data, '0')
     draw_dag()
 }
 
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+}
+
 const plot_graph_for_selection = function(currentSelectedNode) {
     d3.select("#search").property("value", currentSelectedNode.data.name);
     const descendatnsAndParentsIDs = new Set()
+    descendatnsAndParentsIDs.add(currentSelectedNode.data.id)
     for (const [i, descendantNode] of currentSelectedNode.descendants().entries()) {
-        descendatnsAndParentsIDs.add(descendantNode.data.id)
+        if (descendantNode.data.parentIds.includes(currentSelectedNode.data.id)) {
+            descendatnsAndParentsIDs.add(descendantNode.data.id)
+        }
     }
     var parentIDsToCheck = []
     parentIDsToCheck = parentIDsToCheck.concat(currentSelectedNode.data.parentIds);
@@ -278,7 +442,7 @@ const plot_graph_for_selection = function(currentSelectedNode) {
     }
     newDagData = []
     for (const i of descendatnsAndParentsIDs) {
-        newDagData = newDagData.concat(nodeIdToJSONObj.get(i)) 
+        newDagData = newDagData.concat(clone(nodeIdToJSONObj.get(i))) 
     }
     for (const node of newDagData) {
         var cleanParents = []
@@ -289,11 +453,12 @@ const plot_graph_for_selection = function(currentSelectedNode) {
         }
         node.parentIds = cleanParents;
     }
-    if (newDagData.length < 35) {
+    if (newDagData.length < 12) {
         init_dag(newDagData, '2')
     } else  {
         init_dag(newDagData, '0')
     }
+    //selected_name = currentSelectedNode.data.name;
     draw_dag()
 
     d3.selectAll('rect')
@@ -310,88 +475,19 @@ const plot_graph_for_selection = function(currentSelectedNode) {
         .attr('ry', nodeHeight/1.5)
 }
 
+const node_mouseout = function() {
+   
+}
+
+const node_mouseover = function() {
+    url_to_present = this.__data__.data.url;    
+}
+
 const node_click = function() {
+    d3.select('.wp-popup').style('visibility', 'hidden').attr('currentTargetElement', '');    
     const currentSelectedNode = allDataNodes.find((n) => n.data.id === this.__data__.data.id);
     plot_graph_for_selection(currentSelectedNode);
 }
-
-/*
-  const node_click = function() {
-  reset_rects();
-  if (d3.select(this).classed("active")) {
-  reset_visible_and_active();
-  d3.select("#search").property("value", "");
-  } else {
-  nodes.classed("active", false)
-  d3.select(this).classed("active", true)
-  d3.select(this).selectAll('rect')
-  .style('fill', "red")
-  .style('stroke', "black")
-  .attr('width', 1.3 * nodeWidth)
-  .attr('height',1.3 * nodeHeight)
-  .attr('x', -nodeWidth/1.5)
-  .attr('y', -nodeHeight/1.5)
-  .attr('rx', nodeHeight/1.5)
-  .attr('ry', nodeHeight/1.5)
-
-  d3.select("#search").property("value", this.__data__.data.name);
-  const currentSelectedNode = allDagNodes.find((n) => n.data.id === this.__data__.data.id);
-  const descendatnsAndParentsIDs = new Set()
-  for (const [i, descendantNode] of currentSelectedNode.descendants().entries()) {
-  descendatnsAndParentsIDs.add(descendantNode.data.id)
-  }
-  var parentIDsToCheck = []
-  parentIDsToCheck = parentIDsToCheck.concat(currentSelectedNode.data.parentIds);
-  while (parentIDsToCheck.length > 0) {
-  var parentNodeID = parentIDsToCheck.shift();
-  parentNode = allDagNodes.find((n) => n.data.id === parentNodeID);
-  descendatnsAndParentsIDs.add(parentNodeID)
-  parentIDsToCheck = parentIDsToCheck.concat(parentNode.data.parentIds)
-  }
-
-  minX = -1;
-  minY = -1;
-  maxX = -1;
-  maxY = -1;
-  // Show parents and descendant nodes
-  nodes.style("visibility", function(g) {
-  if (descendatnsAndParentsIDs.has(g.data.id)) {
-  if (minX == -1 || minX > g.x) {
-  minX = g.x
-  }
-  if (minY == -1 || minY > g.y) {
-  minY = g.y
-  }
-  if (maxX == -1 || maxX < g.x) {
-  maxX = g.x
-  }
-  if (maxY == -1 || maxY < g.y) {
-  maxY = g.y
-  }
-  return "visible";
-  }
-  return "hidden";
-  });
-  
-  // Show only descendant edges
-  edges.style("visibility", function(g) {
-  if (descendatnsAndParentsIDs.has(g.source.data.id) && descendatnsAndParentsIDs.has(g.target.data.id)) { 
-  return "visible";
-  }
-  return "hidden";
-  });
-
-  // Show only descendant arrows
-  arrows.style("visibility", function(g) {
-  if (descendatnsAndParentsIDs.has(g.source.data.id) && descendatnsAndParentsIDs.has(g.target.data.id)) { 
-  return "visible";
-  }
-  return "hidden";
-  });
-  svgSelection.attr("viewBox", [0, 0, dagWidth, maxY + nodeHeight].join(" "));
-  }
-  }
-*/
 
 gridTweak = (layout) => (dag) => {
     // Tweak allows a basis interpolation to curve the lines
@@ -421,8 +517,8 @@ gridCompact = (layout) => (dag) => {
     // Tweak to render compact grid, first shrink x width by edge radius, then expand the width to account for the loss
     // This could alos be accomplished by just changing the coordinates of the svg viewbox.
     const baseLayout = layout.nodeSize([
-        nodeWidth * 1.1,
-        nodeHeight * 1.1
+        nodeWidth,
+        nodeHeight * 2
     ]);
     const { width, height } = baseLayout(dag);
     for (const node of dag) {
@@ -463,4 +559,3 @@ d3.json("/assets/datasets/ml-world.json").then(function(data) {
     
     draw_dag()
 });
-
