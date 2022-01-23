@@ -16,4 +16,10 @@ var store = [{
         "tags": [],
         "url": "/ML-World/",
         "teaser": "/assets/images/banner.png"
+      },{
+        "title": "Distributed DNN Training - Performance Modeling",
+        "excerpt":"After looking into distributed training, I wondered what the main approaches to evaluate distributed algorithms’ performance are. Here I’ll write a summary of what I found. Intro This post covers state-of-the-art performance models for distributed training algorithms. See Distributed DNN Training for Practitioners for a summary on distributed DNN training....","categories": [],
+        "tags": [],
+        "url": "/DNN-Performance-Model/",
+        "teaser": "/assets/images/banner.png"
       }]

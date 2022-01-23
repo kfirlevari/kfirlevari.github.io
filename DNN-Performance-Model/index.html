@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-01-10T00:00:00-08:00">
+  <meta property="article:published_time" content="2022-01-22T00:00:00-08:00">
 
 
 
@@ -345,7 +345,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Distributed DNN Training - Performance Modeling">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-01-10T00:00:00-08:00">
+    <meta itemprop="datePublished" content="2022-01-22T00:00:00-08:00">
     
 
     <div class="page__inner-wrap">
@@ -356,7 +356,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-balance-scale-right"></i> Performance Modeling</h4></header>
-              <ul class="toc__menu"><li><a href="#intro">Intro</a></li><li><a href="#paleo-model">Paleo Model</a><ul><li><a href="#computation-modeling">Computation Modeling</a></li><li><a href="#communication-modeling">Communication Modeling</a></li><li><a href="#platform-percent-of-peak">Platform Percent of Peak</a></li><li><a href="#discussion">Discussion</a></li></ul></li><li><a href="#feng-yan-et-al-model">Feng Yan et al. Model</a><ul><li><a href="#model--parallelism">Model  Parallelism</a><ul><li><a href="#feed-forward-evaluation">Feed-forward Evaluation</a></li><li><a href="#back-propagation">Back-propagation</a></li><li><a href="#weight-updates">Weight Updates</a></li></ul></li><li><a href="#data-parallelism">Data Parallelism</a><ul><li><a href="#chip-level-multiprocessing">Chip-level Multiprocessing</a></li><li><a href="#layer-replication">Layer Replication</a></li><li><a href="#multiple-model-replicas">Multiple Model Replicas</a></li></ul></li><li><a href="#epoch-time">Epoch Time</a></li><li><a href="#discussion-1">Discussion</a></li></ul></li><li><a href="#shaohuai-shi-et-al-model">Shaohuai Shi et al. Model</a><ul><li><a href="#workflow-of-sgd-and-s-sgd">Workflow of SGD and S-SGD</a></li><li><a href="#performance-model">Performance Model</a><ul><li><a href="#hiding-io-duration">Hiding I/O Duration</a></li><li><a href="#hiding-communication-duration">Hiding Communication Duration</a></li></ul></li><li><a href="#discussion-2">Discussion</a></li></ul></li><li><a href="#daniel-justus-et-al-model">Daniel Justus et al. Model</a><ul><li><a href="#layer-features">Layer Features</a></li><li><a href="#layer-specific-features">Layer Specific Features</a></li><li><a href="#hardware-features">Hardware Features</a></li><li><a href="#discussion-3">Discussion</a></li></ul></li><li><a href="#refrences">Refrences</a></li></ul>
+              <ul class="toc__menu"><li><a href="#intro">Intro</a></li><li><a href="#paleo-model">Paleo Model</a><ul><li><a href="#computation-modeling">Computation Modeling</a></li><li><a href="#communication-modeling">Communication Modeling</a></li><li><a href="#platform-percent-of-peak">Platform Percent of Peak</a></li><li><a href="#discussion">Discussion</a></li></ul></li><li><a href="#feng-yan-et-al-model">Feng Yan et al. Model</a><ul><li><a href="#model--parallelism">Model  Parallelism</a><ul><li><a href="#feed-forward-evaluation">Feed-forward Evaluation</a></li><li><a href="#back-propagation">Back-propagation</a></li><li><a href="#weight-updates">Weight Updates</a></li></ul></li><li><a href="#data-parallelism">Data Parallelism</a><ul><li><a href="#chip-level-multiprocessing">Chip-level Multiprocessing</a></li><li><a href="#layer-replication">Layer Replication</a></li><li><a href="#multiple-model-replicas">Multiple Model Replicas</a></li></ul></li><li><a href="#epoch-time">Epoch Time</a></li><li><a href="#discussion-1">Discussion</a></li></ul></li><li><a href="#shaohuai-shi-et-al-model">Shaohuai Shi et al. Model</a><ul><li><a href="#workflow-of-sgd-and-s-sgd">Workflow of SGD and S-SGD</a></li><li><a href="#performance-model">Performance Model</a><ul><li><a href="#hiding-io-duration">Hiding I/O Duration</a></li><li><a href="#hiding-communication-duration">Hiding Communication Duration</a></li></ul></li><li><a href="#discussion-2">Discussion</a></li></ul></li><li><a href="#daniel-justus-et-al-model">Daniel Justus et al. Model</a><ul><li><a href="#layer-features">Layer Features</a></li><li><a href="#layer-specific-features">Layer Specific Features</a></li><li><a href="#hardware-features">Hardware Features</a></li><li><a href="#discussion-3">Discussion</a></li></ul></li><li><a href="#conclusions">Conclusions</a></li><li><a href="#refrences">Refrences</a></li></ul>
 
             </nav>
           </aside>
@@ -371,7 +371,7 @@
 
 <p>We focus here on performance models for predicting the execution time of a single epoch, i.e., a single forwards and backward pass through all of the training data. Predicting the required number of epochs to reach a desired level of accuracy is a different question that the following models don’t address.</p>
 
-<p>The structure of this document is as follows -</p>
+<p>The structure of this post is as follows -</p>
 
 <ol>
   <li>Sections <a href="#paleo-model">Paleo Model</a>, <a href="#feng-yan-et-al-model">Feng Yan et al. Model</a>, and <a href="#shaohuai-shi-et-al-model">Shaohuai Shi et al. Model</a> give a short overview of analytical performance models for DNN algorithms.</li>
@@ -685,6 +685,10 @@ By doing so, the average iteration time becomes \(t_{iter}​=max(t_{gpu}​+t_{
   <li>Predictions are less explainable compared to other models.</li>
 </ul>
 
+<h2 id="conclusions">Conclusions</h2>
+
+<p>In this post, we saw four performance models, from a model that requires the least amount of benchmarking (Paleo - that bases the training time expectation on the cost of FLOP operations) to a model that requires the most (the last model that requires a dataset of whole training sessions and corresponding durations).</p>
+
 <h2 id="refrences">Refrences</h2>
 
 <ol class="bibliography"><li><span id="Qi2017PaleoAP">Hang Qi, Evan R. Sparks, and Ameet Talwalkar. <b>Paleo: A Performance Model for Deep Neural Networks</b>. In: <i>5th International Conference on Learning Representations, ICLR 2017,
@@ -705,7 +709,7 @@ By doing so, the average iteration time becomes \(t_{iter}​=max(t_{gpu}​+t_{
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-01-10T00:00:00-08:00">January 10, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-01-22T00:00:00-08:00">January 22, 2022</time></p>
 
       </footer>
 
@@ -725,12 +729,11 @@ By doing so, the average iteration time becomes \(t_{iter}​=max(t_{gpu}​+t_{
       
   <nav class="pagination">
     
-      <a href="/CreatingAWebSite/" class="pagination--pager" title="DIY - Homepage with Jekyll &amp; Minimal Mistakes in GitHub.
+      <a href="/ML-World/" class="pagination--pager" title="Machine Learning Knowledge Graph
 ">Previous</a>
     
     
-      <a href="/DNN-Training/" class="pagination--pager" title="Distributed Deep Neural Network (DNN) Training for Practitioners
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
