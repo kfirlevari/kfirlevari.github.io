@@ -1,4 +1,340 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://kfirlevari.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kfirlevari.github.io/" rel="alternate" type="text/html" /><updated>2022-01-15T19:31:16-08:00</updated><id>https://kfirlevari.github.io/feed.xml</id><title type="html">Kfir Lev-Ari</title><subtitle>Kfir Lev-Ari's Homepage</subtitle><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><entry><title type="html">Machine Learning Knowledge Graph</title><link href="https://kfirlevari.github.io/ML-World/" rel="alternate" type="text/html" title="Machine Learning Knowledge Graph" /><published>2022-01-15T00:00:00-08:00</published><updated>2022-01-15T00:00:00-08:00</updated><id>https://kfirlevari.github.io/ML-World</id><content type="html" xml:base="https://kfirlevari.github.io/ML-World/">&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/ml-world-post/ml-dag.css&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://kfirlevari.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kfirlevari.github.io/" rel="alternate" type="text/html" /><updated>2022-01-22T17:30:23-08:00</updated><id>https://kfirlevari.github.io/feed.xml</id><title type="html">Kfir Lev-Ari</title><subtitle>Kfir Lev-Ari's Homepage</subtitle><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><entry><title type="html">Distributed DNN Training - Performance Modeling</title><link href="https://kfirlevari.github.io/DNN-Performance-Model/" rel="alternate" type="text/html" title="Distributed DNN Training - Performance Modeling" /><published>2022-01-22T00:00:00-08:00</published><updated>2022-01-22T00:00:00-08:00</updated><id>https://kfirlevari.github.io/DNN-Performance-Model</id><content type="html" xml:base="https://kfirlevari.github.io/DNN-Performance-Model/">&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;After looking into distributed training, I wondered what the main approaches to evaluate distributed algorithms’ performance are. Here I’ll write a summary of what I found.&lt;/p&gt;
+
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;This post covers state-of-the-art performance models for distributed training algorithms. See &lt;a href=&quot;/DNN-Training/&quot;&gt;Distributed DNN Training for Practitioners&lt;/a&gt; for a summary on distributed DNN training.&lt;/p&gt;
+
+&lt;p&gt;We focus here on performance models for predicting the execution time of a single epoch, i.e., a single forwards and backward pass through all of the training data. Predicting the required number of epochs to reach a desired level of accuracy is a different question that the following models don’t address.&lt;/p&gt;
+
+&lt;p&gt;The structure of this post is as follows -&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sections &lt;a href=&quot;#paleo-model&quot;&gt;Paleo Model&lt;/a&gt;, &lt;a href=&quot;#feng-yan-et-al-model&quot;&gt;Feng Yan et al. Model&lt;/a&gt;, and &lt;a href=&quot;#shaohuai-shi-et-al-model&quot;&gt;Shaohuai Shi et al. Model&lt;/a&gt; give a short overview of analytical performance models for DNN algorithms.&lt;/li&gt;
+  &lt;li&gt;Section &lt;a href=&quot;#daniel-justus-et-al-model&quot;&gt;Daniel Justus et al. Model&lt;/a&gt; describes a performance prediction tool for DNN algorithms.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;paleo-model&quot;&gt;Paleo Model&lt;/h2&gt;
+
+&lt;p&gt;Paleo &lt;a class=&quot;citation&quot; href=&quot;#Qi2017PaleoAP&quot;&gt;[1]&lt;/a&gt; models the expected scalability and performance of a DNN system by extracting resource requirements from a given architecture and mapping them to a point in a design space of software, hardware and communication strategies. &lt;a href=&quot;#Figure1&quot;&gt;Figure 1.&lt;/a&gt; illustrates the different levels of execution time construction.&lt;/p&gt;
+
+&lt;p&gt;Generally, Paleo estimation for the epoch time is a linear calculation primarily based on the number of floating-point operations performed within an epoch.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot; id=&quot;Figure1&quot;&gt;
+  &lt;img src=&quot;/assets/images/Performance-Modeling-Images/Figure1.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      Figure 1. The execution time is decomposed to computation and communication time; both are estimated for each pass of a neural network’s evaluation given user-specified choices within the design space of algorithms, hardware, and communications strategies.
+Figure adapted from &lt;a class=&quot;citation&quot; href=&quot;#Qi2017PaleoAP&quot;&gt;[1]&lt;/a&gt;.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;We now give an overview of the calculation components:&lt;/p&gt;
+
+&lt;h3 id=&quot;computation-modeling&quot;&gt;Computation Modeling&lt;/h3&gt;
+
+&lt;p&gt;For a single machine - DNN computation is expressed as a direct graph in which nodes are associated with operations on devices, and edges represent operation execution dependencies (dependencies in the sense that an operation can be executed only after the execution of all operations pointing to it is over).&lt;/p&gt;
+
+&lt;p&gt;Each layer in the DNN is modeled as a node, and the connections between layers are edges. Let us denote the immediate parents of a node (i.e., layer) \(u\) with \(Pa(u)\).&lt;/p&gt;
+
+&lt;p&gt;The overall computation time \(T(N)\) for a DNN network is built as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The computation time \(T(u)\) for a single layer u that is associated with an operation \(f\) on device \(d\) consists of: 
+    1. Time to fetch the input that was reproduced by the layer’s paraders, denoted \(R(Pa(u))\).
+    2. Time to perform the computation of the operation, denoted \(C(f,d)\).
+    3. Time to write to the local memory the outputs of the operation, denoted \(W(f,d)\).
+  If we consider a sequential execution, we get: \(T(u)=R(Pa(u))+C(f,d)+W(f,d)\).
+    &lt;ul&gt;
+      &lt;li&gt;\(C(f,d)\)  is calculated by \(f\)’s floating-point operation counts divided by \(d\)’s floating-points operations per second (i.e., computation time = FLOP / (FLOP/sec))&lt;/li&gt;
+      &lt;li&gt;\(R(Pa(u))\) and \(W(f,d)\) are calculated by the required memory size divided by \(d\)’s IO bandwidth or by the communication bandwidth in case of fetching inputs from other devices.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The computation time \(T(N)\) for a DNN network \(N\) depends on the structure of \(N\).
+    &lt;ul&gt;
+      &lt;li&gt;For the sequential case, \(T(N)=\sum{T(u)}\) .&lt;/li&gt;
+      &lt;li&gt;For the parallel case (i.e., two or more layers that can be processed concurrently), \(N\) is reduced to a sequential network at which subgraphs of parallel layers are represented by a single super-node \(U\) (i.e., the synchronization barriers in \(N\) are the boundaries of the squashed subgraphs). The execution time of \(U\) is within the range of the best-case (completely parallel execution of the corresponding sub-graph) and worst-case (sequential execution of that sub-graph), i.e., \(T(U) \in [parallel\ execution, \ sequential\ execution]\). The parallel execution time is equal to the \(max(T(u))\) for layer \(u\) in the subgraph represented by \(U\).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that for most types of layer operations, it’s relatively easy to reason about its FLOP counts. For convolutional layers, the exact counts number is derived from the underlying algorithm used (two main algorithms are matrix multiplication and FFT, each with different complexity and IO overhead. For more info, see Section 3.1.3 in &lt;a class=&quot;citation&quot; href=&quot;#Qi2017PaleoAP&quot;&gt;[1]&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Generally, Paleo uses heuristics that are based on offline benchmarks to estimate what underlying algorithm was selected since the selection depends on filter size, strides, input size of convolutional layers, and available memory.&lt;/p&gt;
+
+&lt;h3 id=&quot;communication-modeling&quot;&gt;Communication Modeling&lt;/h3&gt;
+
+&lt;p&gt;For communication between two workers, the communication time \(T_{comm}\)​ is equal to the size of the data \(∣D∣\) to be communicated between them, divided by the bandwidth of the communication channel \(B\) , i.e., \(T_{comm} = \frac{|D∣}{B}\).&lt;br /&gt;
+The overall communication time \(T\) among \(K\) workers depends on the communication scheme used (Paleo consider these three schemes):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OneToAll - \(2KT_{comm}\)​&lt;/li&gt;
+  &lt;li&gt;Tree AllReduce -  \(2log2​(K)T_{comm}\)​&lt;/li&gt;
+  &lt;li&gt;Butterfly AllReduce - \(log2​(K)T_{comm}\)​&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;platform-percent-of-peak&quot;&gt;Platform Percent of Peak&lt;/h3&gt;
+
+&lt;p&gt;In a perfect scenario, all devices operate at their peak FLOPS, and network and IO links are fully saturated. Since it’s unreasonable in practice, Paleo suggests a scaling constant called &lt;em&gt;platform percent of peak (PPP)&lt;/em&gt; to capture the inefficiency of a platform compared to peak FLOPS (100% is the perfect scenario). PPP is calculated by running a small benchmark (on a single GPU for computation PPP and for communication PPP).&lt;/p&gt;
+
+&lt;h3 id=&quot;discussion&quot;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;Pros:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model results seem very close to the actual execution time&lt;/li&gt;
+  &lt;li&gt;Friendly open-source graphical interface  &lt;a class=&quot;citation&quot; href=&quot;#Qi2017PaleoAPGitHub&quot;&gt;[2]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The paper is from 2017, so it doesn’t consider newer algorithms, e.g.:
+    &lt;ul&gt;
+      &lt;li&gt;Consider only data and model parallelism - pipelining isn’t in the paper or hybrid approaches.&lt;/li&gt;
+      &lt;li&gt;Do not consider the recently introduced communication schemes, such as a butterfly mixing scheme or non-deterministic asynchronous parameter servers.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A linear model does not necessarily capture the complexity of the problem (see &lt;a class=&quot;citation&quot; href=&quot;#Justus2018PredictingTC&quot;&gt;[3]&lt;/a&gt; for more information about the flaws of a linear FLOPs-based estimation).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feng-yan-et-al-model&quot;&gt;Feng Yan et al. Model&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a class=&quot;citation&quot; href=&quot;#10.1145/2783258.2783270&quot;&gt;[4]&lt;/a&gt;, they suggest a performance model for predicting the efficiency of a given configuration, i.e., predicting the training epoch duration when using that configuration. Later, they use this model for reducing the search time for efficient and accurate configuration - by empirically evaluating efficient configurations (the idea is that searching a good configuration this way is faster since we iterate over efficient configurations).&lt;/p&gt;
+
+&lt;p&gt;Next, we give intuition to their performance model (see Section 4. in &lt;a class=&quot;citation&quot; href=&quot;#10.1145/2783258.2783270&quot;&gt;[4]&lt;/a&gt; for the full description and equations). Generally, the performance prediction calculation is based on multiple small benchmark results.&lt;/p&gt;
+
+&lt;p&gt;This model integrates Model Parallelism and Data Parallelism - we’ll start by showing a model for the training time of a single sample across multiple machines (as done in Model Parallelism), and then we’ll extend this model to consider different samples on different machines (i.e., to capture Data Parallelism).&lt;/p&gt;
+
+&lt;h3 id=&quot;model--parallelism&quot;&gt;Model  Parallelism&lt;/h3&gt;
+
+&lt;p&gt;Each layer is partitioned into segments that are processed in parallel, meaning that the layer’s execution time is determined by the slowest segment. If we assume that the layer is partitioned into equal segments and also that each segment is processed by the same processing power, then we can estimate the layer’s training time by using any of its segments. The total training time of a segment is equal to the sum of its feed-forward evaluation, back-propagation, and weight updates (each of these consists of computation and communication):&lt;/p&gt;
+
+&lt;h4 id=&quot;feed-forward-evaluation&quot;&gt;Feed-forward Evaluation&lt;/h4&gt;
+
+&lt;p&gt;For each segment, the feed-forward evaluation time is equal to the time spent in computing the output activations of the neurons in the segment and communicating activations from the connected segments in the previous layer.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computation: they suggest evaluating this duration for a given machine by running a micro-benchmark that consists of a canonical feed-forward evaluation. Generally, this benchmark iterates over the neurons of a segment, and for each neuron: (1) accumulates activations (each action is a multiply-add, based on the previous layer activations and the corresponding weight), and (2) computes an activation function for the neuron using the sum that was calculated in (1). See &lt;a href=&quot;#alg1&quot;&gt;Algorithm 1.&lt;/a&gt; for the pseudo-code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;&quot; id=&quot;alg1&quot;&gt;
+  &lt;img src=&quot;/assets/images/Performance-Modeling-Images/Alg1.png&quot; alt=&quot;&quot; /&gt;&lt;figcaption&gt;
+      Algorithm 1. Canonical feed-forward evaluation.
+Algorithm adapted from &lt;a class=&quot;citation&quot; href=&quot;#10.1145/2783258.2783270&quot;&gt;[4]&lt;/a&gt;.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Communication: given that activations can be sent asynchronously, they assume that the communication time of feed-forward evaluation is dominated by the delay in receiving cross-machine activations from the previous layer. 
+  Thus, the communication time is equal to the sum of (1) network latency of sending one bit of data between two workers and (2) the transfer time of the data size received by segment (i.e., the size of each activation multiplied by the number of remote activations and divided by the bandwidth of the machine’s NIC).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;back-propagation&quot;&gt;Back-propagation&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computation: since the calculation structure is similar to the feed-forward calculation, the cost estimation is also similar.&lt;/li&gt;
+  &lt;li&gt;Communication: here, we follow similar reasoning to the one we showed in the communication of forward-feed evaluation, only this time, the data that is received by the segment consists of errors from the following layer, instead of activations from the previous layer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;weight-updates&quot;&gt;Weight Updates&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computation: when updating the segment’s weights, for each weight between two connected neurons (i.e., one that belongs to the segment and another that belongs to another segment), a weight delta is computed using an error term and an activation value (a multiplication action). Then this delta is added to the weight. This means that the total computation cost of weight updates is these multiplications and add actions, multiplied by the number of connections between the segment’s neurons to other segments’ neurons.&lt;/li&gt;
+  &lt;li&gt;Communication: at this point, when we only consider model parallelism, weights aren’t communicated; therefore, the communication cost is 0.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-parallelism&quot;&gt;Data Parallelism&lt;/h3&gt;
+
+&lt;p&gt;We now show the required modifications to the model above for supporting concurrent processing of multiple samples, as done in data parallelism. We focus on three forms - (1) chip-level multiprocessing, (2) layer replication, and (3) model replicas with parameter servers.&lt;/p&gt;
+
+&lt;h4 id=&quot;chip-level-multiprocessing&quot;&gt;Chip-level Multiprocessing&lt;/h4&gt;
+
+&lt;p&gt;Different cores of a chip-level multiprocessing system can process different samples concurrently (e.g., a 16 core processing 16 samples at a time) while asynchronously sharing weights through shared memory. The new dimension here is the number of concurrent threads: a higher value increases concurrency but also increases the potential interference among the threads. Now each segment will be identified by its layer, partition number, and thread ID.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computation: Concurrent training of multiple samples may interfere with each other, competing for memory bandwidth and thus affecting per-sample computation time. For a given number of threads, a performance interference factor is defined to model the interference among them. We estimate it by running a multi-threaded version of the canonical form such that each thread processes the same code segment using different cores. The interference factor then is estimated as the ratio of the multi-thread execution time and the single-thread execution time. The new estimation for computation time of the segment is received by multiplying this interference factor by the estimated computation time of the segment we defined in the model parallelism model (i.e., in a single thread execution).
+    &lt;ul&gt;
+      &lt;li&gt;Data parallelism degree - is defined as the training concurrency degree for a given layer. When we only consider threads concurrency, the degree is equal to the number of threads (this component will later be used for calculating the overall training time).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Communication: when training multiple samples with multiple threads, the network bandwidth is shared among threads, i.e., each thread gets an equal portion of the bandwidth. This affects the data transfer calculation as we now have less bandwidth (a function of the number of threads). In addition, the latency is also a function of the threads number since it might increase due to resource allocation on each side (for supporting multiple connections).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;layer-replication&quot;&gt;Layer Replication&lt;/h4&gt;
+
+&lt;p&gt;In layer replication, multiple machines process a different subset of training data on the same part of the network, thus reducing the network overheads of cross-machine activations. The replication factor doesn’t affect the computation time of each segment or the communication time.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data parallelism degree - when adding replication, the data parallelism degree is equal to the number of threads multiplied by the replication number.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;multiple-model-replicas&quot;&gt;Multiple Model Replicas&lt;/h4&gt;
+
+&lt;p&gt;We now add to the performance model the scenario in which model replicas are trained in parallel using a sharded parameter server scheme. The weight communication load scales with the number of model replicas (since each replica induces more communication load on the parameter servers), and the optimal ratio between computation and communication depends on both the DNN and hardware.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computation: same as before, since a single sample computation isn’t affected by model replication.
+    &lt;ul&gt;
+      &lt;li&gt;Data parallelism degree - extended by a multiplication factor equals the number of model replicas.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Communication: while writing weights to parameter servers can be done asynchronously and does not affect training time, reading weights is a blocking operation since a replica must wait for the weights in order to train the model.  Therefore we add the reading time to the model. The worst-case for the reading time is when all replicas read from the same parameter server at the same time. In this case, the data size (that is read from the parameter server) is equal to the number of replicas multiplied by the size of the model weights, and the transfer time is that data size divided by the bandwidth of a single thread (assuming multiple threads on the parameter server). In addition, we consider the latency between the replica and the parameter server to be also a function of the thread numbers. The actual time is lower than the worst-case (in the paper, they also state the best case as the another bound).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;epoch-time&quot;&gt;Epoch Time&lt;/h3&gt;
+
+&lt;p&gt;In conclusion, the total estimated epoch time in this performance model is equal to the sum of the following components:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The time it takes to read the model from the parameter server multiplied by the total number of times a replica reads from the parameter servers (the latter number is equal to the total number of samples divided by the number of samples used by a replica before reading from the parameter server).&lt;/li&gt;
+  &lt;li&gt;The total time it takes to train all layers. For a given layer, the time is equal to the total number of samples divided by the data parallelism degree (i.e., this gives us a factor for sequential segments - higher number means that we have more sequential segments), multiplied by the time it takes to process a single segment. Processing a segment is the sum of (1) feed-forward propagation computation and communication, (2) back-propagation computation and communication, and (3) update weights computation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;discussion-1&quot;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;Pros:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Their optimizer, which is using their model, was able to find an optimal configuration (for benchmarks) efficiently.&lt;/li&gt;
+  &lt;li&gt;The model takes into account also custom hardware (e.g., FPGAs, ASICs, and RDMA)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It seems like multiple benchmark executions are required in order to get the right estimators, e.g., at least one benchmark execution for every tested number of threads.&lt;/li&gt;
+  &lt;li&gt;It doesn’t consider the decentralized approach of model parallelism.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;shaohuai-shi-et-al-model&quot;&gt;Shaohuai Shi et al. Model&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a class=&quot;citation&quot; href=&quot;#Shi2018PerformanceMA&quot;&gt;[5]&lt;/a&gt;, the authors analyze frameworks’ training time while running on multiple GPUs and nodes. To that end, they build a high-level performance model for training DNNs with synchronous SGD (S-SGD) on GPUs. Generally, their model divides the iteration time into its main components and later measures them as they evaluate the performance.&lt;/p&gt;
+
+&lt;h3 id=&quot;workflow-of-sgd-and-s-sgd&quot;&gt;Workflow of SGD and S-SGD&lt;/h3&gt;
+
+&lt;p&gt;When using a single GPU, the main components of a mini-batch SGD iteration duration are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Read duration of data from disk to CPU memory&lt;/li&gt;
+  &lt;li&gt;Data transfer duration from CPU to GPU&lt;/li&gt;
+  &lt;li&gt;GPU forward feed duration&lt;/li&gt;
+  &lt;li&gt;GPU backward propagation duration&lt;/li&gt;
+  &lt;li&gt;Duration of updating the model using the gradients&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When extended to S-SGD (i.e., for using multiple GPUs and nodes), we have the following phases:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Each node reads the same amount of samples.&lt;/li&gt;
+  &lt;li&gt;Each node distributed the samples evenly to all of its GPUs.&lt;/li&gt;
+  &lt;li&gt;Each GPU runs forward feeds and back propagations.&lt;/li&gt;
+  &lt;li&gt;The gradients are averaged among all node’s GPUs - there is synchronization among GPUs as they must wait for all to complete this step.&lt;/li&gt;
+  &lt;li&gt;Each GPU updates its parameters.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;performance-model&quot;&gt;Performance Model&lt;/h3&gt;
+
+&lt;p&gt;The iteration time titer​ can be written as a sum of three components:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;\(t_{io}\)​ - I/O duration in that iteration - reading data from disk to CPU memory.&lt;/li&gt;
+  &lt;li&gt;\(t_{gpu}\)​ - a duration that sums the work of the GPU. It includes the data transfer time from CPU to GPU, the forward feeds, the back propagations, and the model update operations.&lt;/li&gt;
+  &lt;li&gt;\(t_{comm}\)​ - duration of gradients communication (equals 0 if we only use one GPU).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Using pipelining, we can partially hide tio​ and \(t_{comm}\)​, as we now explain.&lt;/p&gt;
+
+&lt;h4 id=&quot;hiding-io-duration&quot;&gt;Hiding I/O Duration&lt;/h4&gt;
+
+&lt;p&gt;Reducing the I/O duration in step 1 is done by reading new data into CPU memory in parallel with a previous iteration’s computation and communication steps.
+By doing so, the average iteration time becomes \(t_{iter}​=max(t_{gpu}​+t_{comm}​,t_{io}​)\)&lt;/p&gt;
+
+&lt;h4 id=&quot;hiding-communication-duration&quot;&gt;Hiding Communication Duration&lt;/h4&gt;
+
+&lt;p&gt;In each layer, the gradient computation has no dependency on updating the following layers, which means that this computation can be parallelized with the communication (i.e., gradient aggregation in phase 4) in the next layer. The exact level of parallelism depends on the duration of the computation and the duration of the communication.&lt;/p&gt;
+
+&lt;h3 id=&quot;discussion-2&quot;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;Pros:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A simple model that can express the expected speedup for a given number of GPUs.&lt;/li&gt;
+  &lt;li&gt;The effect of I/O and communication on scalability is visible when examining the model equations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mostly a guideline for different time components that need to be measured, most of the work is measuring the different durations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;daniel-justus-et-al-model&quot;&gt;Daniel Justus et al. Model&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a class=&quot;citation&quot; href=&quot;#Justus2018PredictingTC&quot;&gt;[3]&lt;/a&gt;, the authors propose to use a deep neural network to predict the training execution time of a single layer and then build the total expected execution time by summing the results of all layers. They suggest training that predictor DNN using features that are derived from the computational resource used, the network that is trained, and the data used for training. They categorized these features into layer features, layer-specific features, and hardware features. Due to the size of the resulting feature space, they trained their predictor DNN via random subsamples. We now give a summary of the features they mentioned in the paper:&lt;/p&gt;
+
+&lt;h3 id=&quot;layer-features&quot;&gt;Layer Features&lt;/h3&gt;
+
+&lt;p&gt;This category mainly covers the layer’s hyper-parameters, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Activation function type, e.g., ReLU, softmax, sigmoid, etc…&lt;/li&gt;
+  &lt;li&gt;Optimizer type, e.g., Gradient Descent, Adadelta, Adagrad, Momentum, Adam, and RMS Prop.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;layer-specific-features&quot;&gt;Layer Specific Features&lt;/h3&gt;
+
+&lt;p&gt;This category covers features that correspond to specific layer types. Here is a list of a layer type and the features that can be used for it:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fully connected layer - number of inputs to that layer, number of neurons in that layer.&lt;/li&gt;
+  &lt;li&gt;Convolutional layer - matrix size, kernel size, input number of channels, output number of channels, stride size, input padding size&lt;/li&gt;
+  &lt;li&gt;Pooling layer - kernel size, stride size, padding size&lt;/li&gt;
+  &lt;li&gt;Recurrent features - same as a fully connected layer, and also type of recurrence (e.g., LSTM, GRU) and a binary value indicating if the RNN is bidirectional&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hardware-features&quot;&gt;Hardware Features&lt;/h3&gt;
+
+&lt;p&gt;The features in this category describe hardware characteristics. For example, for GPU, we can have the following features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Type, e.g., NVIDIA w/ Turing microarchitecture, or Volta, etc…&lt;/li&gt;
+  &lt;li&gt;Count (number of GPUs used)&lt;/li&gt;
+  &lt;li&gt;Memory size&lt;/li&gt;
+  &lt;li&gt;Clock speed&lt;/li&gt;
+  &lt;li&gt;Memory bandwidth&lt;/li&gt;
+  &lt;li&gt;Core count&lt;/li&gt;
+  &lt;li&gt;GFLOPS peak performance&lt;/li&gt;
+  &lt;li&gt;Connectivity type&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See Section 5. in &lt;a class=&quot;citation&quot; href=&quot;#Justus2018PredictingTC&quot;&gt;[3]&lt;/a&gt; for details about the methodology they used while training their predictor model.&lt;/p&gt;
+
+&lt;h3 id=&quot;discussion-3&quot;&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;Pros:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open source code &lt;a class=&quot;citation&quot; href=&quot;#Justus2018PredictingTCGitHub&quot;&gt;[6]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Their trained model accurately predicted the required execution time for a wide range of the most frequently used components of neural networks.&lt;/li&gt;
+  &lt;li&gt;It can be extended as much as needed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It probably requires a long preparation phase before the approach is usable, compared to the previous approaches.&lt;/li&gt;
+  &lt;li&gt;Predictions are less explainable compared to other models.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;In this post, we saw four performance models, from a model that requires the least amount of benchmarking (Paleo - that bases the training time expectation on the cost of FLOP operations) to a model that requires the most (the last model that requires a dataset of whole training sessions and corresponding durations).&lt;/p&gt;
+
+&lt;h2 id=&quot;refrences&quot;&gt;Refrences&lt;/h2&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Qi2017PaleoAP&quot;&gt;Hang Qi, Evan R. Sparks, and Ameet Talwalkar. &lt;b&gt;Paleo: A Performance Model for Deep Neural Networks&lt;/b&gt;. In: &lt;i&gt;5th International Conference on Learning Representations, ICLR 2017,
+               Toulon, France, April 24-26, 2017, Conference Track Proceedings&lt;/i&gt;, OpenReview.net, 2017.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Qi2017PaleoAPGitHub&quot;&gt;Hang Qi, Evan R. Sparks, and Ameet S. Talwalkar. &lt;b&gt;Paleo - An analytical model to estimate the scalability and performance of deep learning systems &lt;a href=&quot;https://talwalkarlab.github.io/paleo/&quot;&gt;link&lt;/a&gt;&lt;/b&gt;, 2107.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Justus2018PredictingTC&quot;&gt;Daniel Justus, John Brennan, Stephen Bonner, and Andrew Stephen McGough. &lt;b&gt;Predicting the Computational Cost of Deep Learning Models&lt;/b&gt;. &lt;i&gt;2018 IEEE International Conference on Big Data (Big Data)&lt;/i&gt;, :3873–3882, 2018.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;10.1145/2783258.2783270&quot;&gt;Feng Yan, Olatunji Ruwase, Yuxiong He, and Trishul Chilimbi. &lt;b&gt;Performance Modeling and Scalability Optimization of Distributed Deep Learning Systems&lt;/b&gt;. In: &lt;i&gt;Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt;, pp. 1355–1364, Association for Computing Machinery, New York, NY, USA, 2015.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Shi2018PerformanceMA&quot;&gt;Shaohuai Shi and Xiaowen Chu. &lt;b&gt;Performance Modeling and Evaluation of Distributed Deep Learning Frameworks on GPUs&lt;/b&gt;. &lt;i&gt;2018 IEEE 16th Intl Conf on Dependable, Autonomic and Secure Computing, 16th Intl Conf on Pervasive Intelligence and Computing, 4th Intl Conf on Big Data Intelligence and Computing and Cyber Science and Technology Congress(DASC/PiCom/DataCom/CyberSciTech)&lt;/i&gt;, :949–957, 2018.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Justus2018PredictingTCGitHub&quot;&gt;Daniel Justus, John Brennan, Stephen Bonner, and Andrew Stephen McGough. &lt;b&gt;performance-prediction &lt;a href=&quot;https://github.com/CDECatapult/ml-performance-prediction&quot;&gt;link&lt;/a&gt;&lt;/b&gt;, 2018.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Kfir Lev-Ari</name><email>kfirlevari@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">Machine Learning Knowledge Graph</title><link href="https://kfirlevari.github.io/ML-World/" rel="alternate" type="text/html" title="Machine Learning Knowledge Graph" /><published>2022-01-15T00:00:00-08:00</published><updated>2022-01-15T00:00:00-08:00</updated><id>https://kfirlevari.github.io/ML-World</id><content type="html" xml:base="https://kfirlevari.github.io/ML-World/">&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/ml-world-post/ml-dag.css&quot; /&gt;
 
 &lt;p&gt;Anat (my wife) told me that it would be nice to have a graphical representation of the different terms and domains in ML. I remember seeing static images of that type online, but I didn’t find a dynamic knowledge graph that gives a clearer picture for a selected term.
 I thought it would be interesting to implement one as a weekend project, and this post is the result of that attempt :crossed_fingers:.&lt;/p&gt;
