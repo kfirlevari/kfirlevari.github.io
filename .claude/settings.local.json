@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:rupertspira.com)",
+      "WebFetch(domain:iditkeidar.com)",
+      "WebFetch(domain:hubermanlab.com)",
+      "WebFetch(domain:anchor.fm)",
+      "WebFetch(domain:littlesprigs.com)",
+      "WebFetch(domain:www.downdogapp.com)",
+      "WebFetch(domain:podcasters.spotify.com)",
+      "WebFetch(domain:dblp2.uni-trier.de)",
+      "WebFetch(domain:www.ynet.co.il)",
+      "WebFetch(domain:dblp.org)",
+      "WebFetch(domain:creators.spotify.com)",
+      "WebFetch(domain:g.co)",
+      "WebSearch",
+      "WebFetch(domain:www.bernardokastrup.com)",
+      "Bash(find:*)",
+      "Bash(start index.html)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFeb Update\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)"
+    ]
+  }
+}
