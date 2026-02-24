@@ -176,7 +176,12 @@
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        itemSelector: '.portfolio-item',
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: '.portfolio-item'
+        },
+        percentPosition: true
       });
 
       let portfolioFilters = select('#portfolio-flters li', true);
