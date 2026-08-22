@@ -1245,3 +1245,249 @@ section {
 .portfolio .portfolio-container {
   margin: 0 -7.5px;
 }
+
+/*--------------------------------------------------------------
+# Book (The Whole of You)
+--------------------------------------------------------------*/
+.book {
+  padding: 60px 0;
+}
+
+.book .section-title h2 strong {
+  font-weight: 900;
+  color: #0563bb;
+}
+
+.book .book-gallery-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #45505b;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.book .book-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f4f8;
+  color: #45505b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid #d8e2ec;
+  margin-bottom: 25px;
+}
+
+.book .book-badge i {
+  color: #0563bb;
+  font-size: 1.1rem;
+}
+
+.book .book-img-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(69, 80, 91, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.book .book-img-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(69, 80, 91, 0.18);
+}
+
+.book .book-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  background: #eaedf0;
+}
+
+.book .book-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.book .book-img-card:hover .book-img-wrap img {
+  transform: scale(1.05);
+}
+
+.book .book-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 99, 187, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book .book-img-card:hover .book-img-overlay {
+  opacity: 1;
+}
+
+.book .book-img-overlay i {
+  color: #fff;
+  font-size: 28px;
+  background: rgba(5, 99, 187, 0.85);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.book .book-img-card:hover .book-img-overlay i {
+  transform: scale(1.1);
+}
+
+.book .book-img-caption {
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #45505b;
+  font-weight: 500;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  margin-top: auto;
+}
+
+.book .book-quote-box {
+  background: #f7f9fc;
+  border-left: 4px solid #0563bb;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 25px 0;
+}
+
+.book .book-quote-box p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #45505b;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.book .theme-card {
+  background: #fff;
+  border: 1px solid #eaedf1;
+  border-radius: 12px;
+  padding: 28px 24px;
+  height: 100%;
+  box-shadow: 0 5px 20px rgba(110, 123, 131, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.book .theme-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(5, 99, 187, 0.1);
+  border-color: #c9ddf2;
+}
+
+.book .theme-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: #eef6ff;
+  color: #0563bb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.book .theme-card:hover .theme-icon {
+  background: #0563bb;
+  color: #fff;
+}
+
+.book .theme-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #45505b;
+  margin-bottom: 12px;
+}
+
+.book .theme-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.book .book-closing {
+  background: #f7f9fc;
+  border: 1px solid #e8ecf0;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.book .book-closing p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #45505b;
+  margin-bottom: 0;
+}
+
+.book .btn-amazon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #232f3e;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: 30px;
+  border: 1px solid #232f3e;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(35, 47, 62, 0.15);
+}
+
+.book .btn-amazon i {
+  color: #ff9900;
+  font-size: 1.2rem;
+}
+
+.book .btn-amazon:hover {
+  background: #131921;
+  color: #ff9900;
+  box-shadow: 0 6px 18px rgba(35, 47, 62, 0.25);
+  transform: translateY(-2px);
+}
+
+.book .btn-amazon-lg {
+  padding: 12px 30px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .book .book-closing {
+    padding: 20px;
+  }
+  .book .book-img-wrap {
+    height: 250px;
+  }
+}
